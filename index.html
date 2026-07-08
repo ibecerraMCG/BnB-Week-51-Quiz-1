@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 51 · B&amp;B Week 1 · Part 1 — Practice Quiz</title>
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🧠&lt;/text&gt;&lt;/svg&gt;">
+
+    <!-- Umami Analytics — replace website-id with your quiz site ID when ready -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR-QUIZ-WEBSITE-ID"></script>
+
+    <style>
+    /* ============================================================
+       BASE TOKENS  (shared with the B&B directory)
+    ============================================================ */
+    :root {
+        --transition-speed: 0.3s;
+        --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        --font-mono: 'Courier New', Courier, monospace;
+        --sidebar-width: 288px;
+        --header-h: 56px;
+        --header-height: 56px;
+        --radius: 14px;
+    }
+/* Navy (default) — matches the Quiz Library */
+    [data-theme="navy"] {
+        --bg-body: #0b1430;
+        --bg-card: #13203f;
+        --bg-card-hover: #1a2a4f;
+        --bg-header: rgba(11,20,48,0.86);
+        --bg-sidebar: rgba(14,24,56,0.72);
+        --bg-input: #1a2a4f;
+        --bg-active: rgba(110,168,254,0.2);
+        --bg-hover: rgba(110,168,254,0.1);
+        --text-main: #eef2fb;
+        --topic-color: #ffffff;
+        --text-muted: #93a0c0;
+        --text-accent: #6ea8fe;
+        --text-accent-2: #7ee0d0;
+        --border-color: rgba(110,168,254,0.3);
+        --border-subtle: rgba(255,255,255,0.08);
+        --button-bg: #6ea8fe;
+        --button-text: #08101f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #93a0c0;
+        --btn-disabled-border: rgba(255,255,255,0.16);
+        --live-dot: #34d399;
+        --part-1: #6ea8fe;
+        --part-2: #38bdf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #6ea8fe;
+        --neural-rgb: 110,168,254;
+        --card-glow: rgba(110,168,254,0.35);
+        --select-bg: #1a2a4f;
+        --select-text: #eef2fb;
+        --hero-glow-1: rgba(110,168,254,0.22);
+        --hero-glow-2: rgba(126,224,208,0.14);
+    }
+
+    /* Charcoal — neutral warm-grey dark */
+    [data-theme="charcoal"] {
+        --bg-body: #15171c;
+        --bg-card: #1f232b;
+        --bg-card-hover: #262b35;
+        --bg-header: rgba(21,23,28,0.86);
+        --bg-sidebar: rgba(25,28,34,0.72);
+        --bg-input: #262b35;
+        --bg-active: rgba(224,169,109,0.18);
+        --bg-hover: rgba(224,169,109,0.1);
+        --text-main: #ecedf0;
+        --topic-color: #ffffff;
+        --text-muted: #959aa6;
+        --text-accent: #e0a96d;
+        --text-accent-2: #9fd0c0;
+        --border-color: rgba(224,169,109,0.3);
+        --border-subtle: rgba(255,255,255,0.07);
+        --button-bg: #e0a96d;
+        --button-text: #1a1409;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #959aa6;
+        --btn-disabled-border: rgba(255,255,255,0.15);
+        --live-dot: #6fcf97;
+        --part-1: #e0a96d;
+        --part-2: #9fd0c0;
+        --part-3: #84b6c9;
+        --part-4: #d39ab0;
+        --solid-accent: #e0a96d;
+        --neural-rgb: 224,169,109;
+        --card-glow: rgba(224,169,109,0.3);
+        --select-bg: #262b35;
+        --select-text: #ecedf0;
+        --hero-glow-1: rgba(224,169,109,0.14);
+        --hero-glow-2: rgba(159,208,192,0.1);
+    }
+
+    /* Slate — blue-grey */
+    [data-theme="slate"] {
+        --bg-body: #1e293b;
+        --bg-card: #334155;
+        --bg-card-hover: #3d4c63;
+        --bg-header: rgba(15,23,42,0.86);
+        --bg-sidebar: rgba(20,30,48,0.78);
+        --bg-input: #2c3a50;
+        --bg-active: rgba(56,189,248,0.2);
+        --bg-hover: rgba(56,189,248,0.1);
+        --text-main: #f1f5f9;
+        --topic-color: #ffffff;
+        --text-muted: #94a3b8;
+        --text-accent: #38bdf8;
+        --text-accent-2: #5eead4;
+        --border-color: rgba(56,189,248,0.3);
+        --border-subtle: rgba(148,163,184,0.18);
+        --button-bg: #38bdf8;
+        --button-text: #0f172a;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #94a3b8;
+        --btn-disabled-border: rgba(148,163,184,0.25);
+        --live-dot: #34d399;
+        --part-1: #38bdf8;
+        --part-2: #818cf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #38bdf8;
+        --neural-rgb: 56,189,248;
+        --card-glow: rgba(56,189,248,0.35);
+        --select-bg: #2c3a50;
+        --select-text: #f1f5f9;
+        --hero-glow-1: rgba(56,189,248,0.26);
+        --hero-glow-2: rgba(129,140,248,0.18);
+    }
+
+    /* Plum — deep purple */
+    [data-theme="plum"] {
+        --bg-body: #16131f;
+        --bg-card: #221c30;
+        --bg-card-hover: #2c2440;
+        --bg-header: rgba(18,15,26,0.86);
+        --bg-sidebar: rgba(27,22,40,0.75);
+        --bg-input: #2a2338;
+        --bg-active: rgba(196,176,255,0.22);
+        --bg-hover: rgba(196,176,255,0.12);
+        --text-main: #f3f0fa;
+        --topic-color: #ffffff;
+        --text-muted: #9c92b3;
+        --text-accent: #c4b0ff;
+        --text-accent-2: #5eead4;
+        --border-color: rgba(196,176,255,0.3);
+        --border-subtle: rgba(196,176,255,0.12);
+        --button-bg: #a78bfa;
+        --button-text: #14101f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #9c92b3;
+        --btn-disabled-border: rgba(196,176,255,0.18);
+        --live-dot: #34d399;
+        --part-1: #c4b0ff;
+        --part-2: #38bdf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #c4b0ff;
+        --neural-rgb: 196,176,255;
+        --card-glow: rgba(196,176,255,0.32);
+        --select-bg: #2a2338;
+        --select-text: #f3f0fa;
+        --hero-glow-1: rgba(124,58,237,0.24);
+        --hero-glow-2: rgba(56,189,248,0.12);
+    }
+
+    /* Forest — deep green */
+    [data-theme="forest"] {
+        --bg-body: #0d1a14;
+        --bg-card: #142620;
+        --bg-card-hover: #1b322a;
+        --bg-header: rgba(13,26,20,0.86);
+        --bg-sidebar: rgba(16,32,26,0.75);
+        --bg-input: #1b322a;
+        --bg-active: rgba(94,217,154,0.2);
+        --bg-hover: rgba(94,217,154,0.1);
+        --text-main: #e9f3ec;
+        --topic-color: #ffffff;
+        --text-muted: #8aa899;
+        --text-accent: #5ed99a;
+        --text-accent-2: #a7e8d0;
+        --border-color: rgba(94,217,154,0.3);
+        --border-subtle: rgba(143,209,179,0.12);
+        --button-bg: #5ed99a;
+        --button-text: #08160f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #8aa899;
+        --btn-disabled-border: rgba(143,209,179,0.2);
+        --live-dot: #5ed99a;
+        --part-1: #5ed99a;
+        --part-2: #6ea8fe;
+        --part-3: #a7e8d0;
+        --part-4: #fbbf24;
+        --solid-accent: #5ed99a;
+        --neural-rgb: 94,217,154;
+        --card-glow: rgba(94,217,154,0.3);
+        --select-bg: #1b322a;
+        --select-text: #e9f3ec;
+        --hero-glow-1: rgba(94,217,154,0.18);
+        --hero-glow-2: rgba(167,232,208,0.12);
+    }
+
+    /* Midnight */
+    [data-theme="midnight"] {
+        --bg-body: #000000;
+        --bg-card: #0a0b12;
+        --bg-card-hover: #11131d;
+        --bg-header: rgba(0,0,0,0.85);
+        --bg-sidebar: rgba(4,5,9,0.78);
+        --bg-input: #0c0e16;
+        --bg-active: rgba(129,140,248,0.16);
+        --bg-hover: rgba(129,140,248,0.07);
+        --text-main: #d6dae3;
+        --topic-color: #d6dae3;
+        --text-muted: #6b7280;
+        --text-accent: #818cf8;
+        --text-accent-2: #67e8f9;
+        --border-color: rgba(129,140,248,0.22);
+        --border-subtle: rgba(255,255,255,0.05);
+        --button-bg: #4f46e5;
+        --button-text: #ffffff;
+        --btn-disabled-bg: rgba(255,255,255,0.03);
+        --btn-disabled-text: #5b6170;
+        --btn-disabled-border: rgba(255,255,255,0.08);
+        --live-dot: #34d399;
+        --part-1: #818cf8;
+        --part-2: #67e8f9;
+        --part-3: #4ade80;
+        --part-4: #fbbf24;
+        --solid-accent: #818cf8;
+        --neural-rgb: 129,140,248;
+        --card-glow: rgba(129,140,248,0.22);
+        --select-bg: #0c0e16;
+        --select-text: #d6dae3;
+        --hero-glow-1: rgba(79,70,229,0.25);
+        --hero-glow-2: rgba(103,232,249,0.12);
+    }
+
+    /* Modern Light */
+    [data-theme="light"] {
+        --bg-body: #eef2fb;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f6f8ff;
+        --bg-header: rgba(238,242,251,0.9);
+        --bg-sidebar: rgba(255,255,255,0.7);
+        --bg-input: #f3f6fd;
+        --bg-active: rgba(37,99,235,0.1);
+        --bg-hover: rgba(37,99,235,0.05);
+        --text-main: #16203a;
+        --topic-color: #16203a;
+        --text-muted: #5a6685;
+        --text-accent: #2563eb;
+        --text-accent-2: #0891b2;
+        --border-color: rgba(37,99,235,0.18);
+        --border-subtle: rgba(20,40,90,0.1);
+        --button-bg: #2563eb;
+        --button-text: #ffffff;
+        --btn-disabled-bg: #eef1f7;
+        --btn-disabled-text: #9099ab;
+        --btn-disabled-border: #d4dae6;
+        --live-dot: #16a34a;
+        --part-1: #2563eb;
+        --part-2: #0891b2;
+        --part-3: #059669;
+        --part-4: #ea580c;
+        --solid-accent: #2563eb;
+        --neural-rgb: 37,99,235;
+        --card-glow: rgba(37,99,235,0.16);
+        --select-bg: #ffffff;
+        --select-text: #16203a;
+        --hero-glow-1: rgba(37,99,235,0.12);
+        --hero-glow-2: rgba(8,145,178,0.08);
+    }
+
+    /* Sepia */
+    [data-theme="sepia"] {
+        --bg-body: #efe6d2;
+        --bg-card: #fdf6e3;
+        --bg-card-hover: #fbf2d9;
+        --bg-header: rgba(244,236,216,0.9);
+        --bg-sidebar: rgba(253,246,227,0.72);
+        --bg-input: #f6eed6;
+        --bg-active: rgba(160,90,44,0.14);
+        --bg-hover: rgba(160,90,44,0.06);
+        --text-main: #433422;
+        --topic-color: #433422;
+        --text-muted: #7c6f58;
+        --text-accent: #a05a2c;
+        --text-accent-2: #6b7a3a;
+        --border-color: rgba(160,90,44,0.24);
+        --border-subtle: rgba(67,52,34,0.12);
+        --button-bg: #a05a2c;
+        --button-text: #fdf6e3;
+        --btn-disabled-bg: #ece1c8;
+        --btn-disabled-text: #a08f74;
+        --btn-disabled-border: #d3c4a5;
+        --live-dot: #5a7a3a;
+        --part-1: #a05a2c;
+        --part-2: #6b7a3a;
+        --part-3: #8b7355;
+        --part-4: #b8860b;
+        --solid-accent: #a05a2c;
+        --neural-rgb: 160,90,44;
+        --card-glow: rgba(160,90,44,0.18);
+        --select-bg: #fdf6e3;
+        --select-text: #433422;
+        --hero-glow-1: rgba(160,90,44,0.16);
+        --hero-glow-2: rgba(107,142,35,0.1);
+    }
+
+    /* High Contrast */
+    [data-theme="contrast"] {
+        --bg-body: #000000;
+        --bg-card: #0a0a0a;
+        --bg-card-hover: #141414;
+        --bg-header: rgba(0,0,0,0.9);
+        --bg-sidebar: rgba(0,0,0,0.85);
+        --bg-input: #111111;
+        --bg-active: rgba(255,212,0,0.16);
+        --bg-hover: rgba(255,212,0,0.07);
+        --text-main: #ffffff;
+        --topic-color: #ffffff;
+        --text-muted: #cfcfcf;
+        --text-accent: #ffd400;
+        --text-accent-2: #00e5ff;
+        --border-color: rgba(255,255,255,0.55);
+        --border-subtle: rgba(255,255,255,0.22);
+        --button-bg: #ffd400;
+        --button-text: #000000;
+        --btn-disabled-bg: #141414;
+        --btn-disabled-text: #888888;
+        --btn-disabled-border: #444444;
+        --live-dot: #00ff00;
+        --part-1: #ffd400;
+        --part-2: #00e5ff;
+        --part-3: #00ff00;
+        --part-4: #ff7a00;
+        --solid-accent: #ffd400;
+        --neural-rgb: 255,212,0;
+        --card-glow: rgba(255,212,0,0.2);
+        --select-bg: #111111;
+        --select-text: #ffffff;
+        --hero-glow-1: rgba(255,212,0,0.12);
+        --hero-glow-2: rgba(0,229,255,0.1);
+    }
+
+    /* ============================================================
+       
+
+    /* ============================================================
+       RESET & PAGE
+    ============================================================ */
+    * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    ::selection { background: var(--bg-active); color: var(--text-main); }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+
+    body {
+        font-family: var(--font-main); background: var(--bg-body); color: var(--text-main);
+        line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; overflow-x: hidden;
+        transition: background var(--transition-speed), color var(--transition-speed);
+    }
+    #neural-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    #wash {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background:
+            radial-gradient(56vw 46vh at 100% 0%, var(--hero-glow-1), transparent 68%),
+            radial-gradient(46vw 40vh at 0% 4%, var(--hero-glow-2), transparent 66%);
+        transition: background 0.6s ease, opacity 0.4s ease;
+    }
+    body.no-accents #wash { opacity: 0; }
+    #app { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ============================================================
+       HEADER  (matches B&B directory)
+    ============================================================ */
+    #main-header {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--header-h);
+        display: flex; align-items: center; gap: 14px; padding: 0 clamp(0.8rem, 2.5vw, 1.4rem);
+        background: var(--bg-header); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%);
+        border-bottom: 1px solid var(--border-subtle);
+        transition: transform 0.35s cubic-bezier(.4,0,.2,1), border-color 0.3s;
+    }
+    #main-header.scrolled { box-shadow: 0 6px 26px rgba(0,0,0,0.18); }
+    #main-header.unpinned { position: absolute; }
+
+    #sidebar-toggle {
+        flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px; background: none;
+        border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 4px; transition: background 0.2s, border-color 0.2s;
+    }
+    #sidebar-toggle:hover { background: var(--bg-hover); }
+    #sidebar-toggle span { display: block; width: 16px; height: 2px; background: var(--text-main); border-radius: 1px; transition: all 0.22s; }
+
+    .brand { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; }
+    .brand-mark { flex-shrink: 0; width: 34px; height: 34px; }
+    .brand-mark svg { width: 100%; height: 100%; display: block; }
+    .brand-text { min-width: 0; }
+    .brand-title { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.01em; color: var(--text-main); line-height: 1.12; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-sub { font-size: 0.66rem; color: var(--text-muted); letter-spacing: 0.04em; }
+    .brand-short { display: none; }
+
+    .header-controls { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+
+    .mode-switch { display: inline-flex; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; height: 38px; }
+    .mode-switch button {
+        border: none; background: none; cursor: pointer; font-family: var(--font-main);
+        font-size: 0.78rem; font-weight: 600; color: var(--text-muted); padding: 0 13px; transition: all 0.18s;
+    }
+    .mode-switch button.active { background: var(--button-bg); color: var(--button-text); }
+    .mode-switch button:not(.active):hover { color: var(--text-main); background: var(--bg-hover); }
+
+    .icon-btn, #settings-btn {
+        flex-shrink: 0; height: 38px; min-width: 38px; padding: 0 10px; border-radius: 10px;
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        background: none; border: 1px solid var(--border-color); cursor: pointer;
+        font-size: 0.9rem; font-weight: 600; color: var(--text-main); font-family: var(--font-main);
+        transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .icon-btn:hover, #settings-btn:hover { background: var(--bg-hover); }
+    .icon-btn:active, #settings-btn:active { transform: scale(0.94); }
+    #settings-btn.open, .icon-btn.on { background: var(--bg-active); border-color: var(--text-accent); color: var(--text-accent); }
+    .icon-btn svg { display: block; }
+    .icon-btn .btn-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.01em; }
+    /* Highlighter active uses the highlight colour for a clear signal */
+    #hl-btn.on { background: color-mix(in srgb, var(--flag-color, #f5a524) 22%, transparent); border-color: var(--flag-color, #f5a524); color: var(--flag-color, #f5a524); }
+
+    #theme-select {
+        height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--border-color); cursor: pointer;
+        background: var(--select-bg); color: var(--select-text); font-family: var(--font-main); font-size: 0.82rem;
+    }
+    #theme-select:hover { border-color: var(--text-accent); }
+    #theme-select option { background: var(--select-bg); color: var(--select-text); }
+
+    /* popovers */
+    #custom-builder, #settings-panel {
+        position: absolute; top: calc(var(--header-h) + 8px); right: clamp(0.8rem, 2.5vw, 1.4rem);
+        background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 15px 17px;
+        z-index: 300; box-shadow: 0 16px 44px rgba(0,0,0,0.4); animation: pop-in 0.2s ease;
+    }
+    @keyframes pop-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    #custom-builder { display: none; flex-direction: column; gap: 4px; min-width: 230px; }
+    #custom-builder.active { display: flex; }
+    .cpg { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--text-muted); font-size: 0.82rem; padding: 5px 0; }
+    .cpg input[type="color"] { border: none; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; padding: 0; background: none; }
+
+    #settings-panel { display: none; min-width: 288px; }
+    #settings-panel.open { display: block; }
+    .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 11px 0; }
+    .settings-row + .settings-row { border-top: 1px solid var(--border-subtle); }
+    .settings-row + .settings-subrow, .settings-subrow + .settings-row { border-top: none; }
+    .settings-row:first-of-type { padding-top: 3px; }
+    .settings-title { font-size: 0.85rem; font-weight: 600; color: var(--text-main); }
+    .settings-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+    .settings-subrow { margin: 3px 0 2px; padding: 10px 12px; background: var(--bg-input); border-radius: 10px; }
+    .settings-subrow .settings-title { font-weight: 600; font-size: 0.8rem; }
+    .mini-select { flex-shrink: 0; height: 30px; padding: 0 8px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--select-bg); color: var(--select-text); font-family: var(--font-main); font-size: 0.76rem; cursor: pointer; max-width: 148px; }
+    .mini-select option { background: var(--select-bg); color: var(--select-text); }
+    .toggle-switch { flex-shrink: 0; width: 46px; height: 26px; border-radius: 100px; position: relative; border: 1px solid var(--border-color); background: var(--bg-input); cursor: pointer; padding: 0; transition: background 0.22s, border-color 0.22s; }
+    .toggle-switch.on { background: var(--button-bg); border-color: var(--button-bg); }
+    .toggle-knob { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.35); transition: transform 0.24s cubic-bezier(.4,0,.2,1); }
+    .toggle-switch.on .toggle-knob { transform: translateX(20px); }
+
+    .settings-action { align-items: center; }
+    .btn-pair { flex-shrink: 0; display: inline-flex; gap: 6px; }
+    .pair-btn {
+        font-family: var(--font-main); font-size: 0.76rem; font-weight: 700; cursor: pointer;
+        padding: 7px 15px; border-radius: 8px;
+        background: var(--bg-card); color: var(--text-accent); border: 1px solid var(--border-color);
+        transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+    .pair-btn:hover { background: var(--text-accent); color: var(--button-text); border-color: var(--text-accent); }
+    .pair-btn.danger { color: #f87171; border-color: rgba(248,113,113,0.5); }
+    .pair-btn.danger:hover, .pair-btn.danger.confirm { background: #f87171; color: #fff; border-color: #f87171; }
+    .mode-switch-mobile { height: 34px; }
+    .mode-switch-mobile button { font-size: 0.76rem; padding: 0 14px; }
+    /* Mobile-only settings rows hidden on desktop */
+    .mobile-only-row { display: none; }
+
+    /* ============================================================
+       LAYOUT + SIDEBAR (question navigator)
+    ============================================================ */
+    #body-layout { display: flex; flex: 1; margin-top: var(--header-height); transition: margin-top 0.35s cubic-bezier(.4,0,.2,1); }
+    #sidebar {
+        width: var(--sidebar-width); flex-shrink: 0; position: sticky; top: var(--header-height); align-self: flex-start;
+        height: calc(100vh - var(--header-height)); overflow-y: auto; padding: 1.2rem 0 2.5rem;
+        background: var(--bg-sidebar); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-right: 1px solid var(--border-subtle);
+        transition: width 0.32s cubic-bezier(.4,0,.2,1), opacity 0.25s, padding 0.32s;
+    }
+    #sidebar.collapsed { width: 0; opacity: 0; padding: 0; overflow: hidden; border-right: none; }
+
+    .nav-summary { padding: 0 1.15rem 1rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-subtle); }
+    .nav-summary-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.7rem; }
+    .progress-track { height: 8px; border-radius: 100px; background: var(--bg-input); overflow: hidden; border: 1px solid var(--border-subtle); }
+    .progress-fill { height: 100%; width: 0%; border-radius: 100px; background: linear-gradient(90deg, var(--text-accent), var(--text-accent-2)); transition: width 0.35s ease; }
+    .nav-stats { display: flex; justify-content: space-between; margin-top: 0.6rem; font-size: 0.74rem; color: var(--text-muted); }
+    .nav-stats b { color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .nav-flag-count { color: var(--flag-color, #f5a524); }
+
+    .nav-section { padding: 0.5rem 1.15rem 0.2rem; }
+    .nav-section-label {
+        display: flex; align-items: center; gap: 8px; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--text-accent); margin: 0.9rem 0 0.7rem; line-height: 1.4;
+    }
+    .nav-section-label .sec-num { flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px; background: var(--bg-active); display: inline-flex; align-items: center; justify-content: center; font-size: 0.62rem; }
+    .nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 6px; }
+
+    .nav-cell {
+        position: relative; aspect-ratio: 1; border-radius: 9px; cursor: pointer;
+        border: 1.5px solid var(--border-color); background: var(--bg-input);
+        color: var(--text-muted); font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+        display: flex; align-items: center; justify-content: center; transition: all 0.16s;
+    }
+    .nav-cell:hover { transform: translateY(-1px); border-color: var(--text-accent); color: var(--text-main); }
+    .nav-cell.answered { background: var(--bg-active); border-color: var(--text-accent); color: var(--text-accent); }
+    .nav-cell.current { box-shadow: 0 0 0 2px var(--text-accent); border-color: var(--text-accent); }
+    .nav-cell.correct { background: var(--correct-bg, rgba(52,211,153,0.22)); border-color: var(--correct, #34d399); color: var(--correct, #34d399); }
+    .nav-cell.incorrect { background: var(--incorrect-bg, rgba(248,113,113,0.2)); border-color: var(--incorrect, #f87171); color: var(--incorrect, #f87171); }
+    .nav-cell .flag-dot { position: absolute; top: -4px; right: -4px; width: 12px; height: 12px; border-radius: 50%; background: var(--flag-color, #f5a524); border: 2px solid var(--bg-sidebar); display: none; }
+    .nav-cell.flagged .flag-dot { display: block; }
+
+    .nav-legend { padding: 1rem 1.15rem 0; margin-top: 0.6rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 7px; }
+    .legend-item { display: flex; align-items: center; gap: 9px; font-size: 0.72rem; color: var(--text-muted); }
+    .legend-swatch { width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid var(--border-color); flex-shrink: 0; position: relative; }
+    .legend-swatch.answered { background: var(--bg-active); border-color: var(--text-accent); }
+    .legend-swatch.flagged::after { content: ""; position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; border-radius: 50%; background: var(--flag-color, #f5a524); border: 1.5px solid var(--bg-sidebar); }
+    .legend-swatch.correct { background: var(--correct-bg, rgba(52,211,153,0.22)); border-color: var(--correct, #34d399); }
+    .legend-swatch.incorrect { background: var(--incorrect-bg, rgba(248,113,113,0.2)); border-color: var(--incorrect, #f87171); }
+
+    /* ============================================================
+       MAIN + QUIZ
+    ============================================================ */
+    #main-content { flex: 1; min-width: 0; padding: clamp(1.6rem, 3vw, 2.6rem) clamp(1rem, 4vw, 3rem) 5rem; max-width: 860px; margin: 0 auto; width: 100%; }
+
+    .quiz-hero { margin-bottom: 2rem; }
+    .quiz-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.7rem; }
+    .quiz-title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; background: linear-gradient(120deg, var(--text-accent), var(--text-accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; width: fit-content; }
+    body.no-accents .quiz-title { background: none; -webkit-text-fill-color: var(--solid-accent); color: var(--solid-accent); }
+    .quiz-meta { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--border-subtle); }
+    .qm { display: flex; flex-direction: column; gap: 2px; }
+    .qm .n { font-size: 1.2rem; font-weight: 700; color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .qm .l { font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .mode-hint { margin-top: 1.1rem; padding: 0.7rem 1rem; border-radius: 10px; background: var(--bg-active); border: 1px solid var(--border-color); font-size: 0.82rem; color: var(--text-main); display: flex; align-items: center; gap: 9px; }
+    .mode-hint .mh-ic { font-size: 1rem; }
+
+    /* section divider between question groups */
+    .section-divider { display: flex; align-items: center; gap: 14px; margin: 2.4rem 0 1.4rem; }
+    .section-divider:first-of-type { margin-top: 0.5rem; }
+    .section-divider .sd-chip { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-accent); padding: 4px 10px; border-radius: 8px; background: var(--bg-active); white-space: nowrap; }
+    .section-divider .sd-name { font-size: 1.02rem; font-weight: 700; color: var(--text-main); }
+    .section-divider .sd-rule { flex: 1; height: 1px; background: var(--border-subtle); }
+
+    /* question card */
+    .question-card { position: relative; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-bottom: 1.3rem; scroll-margin-top: calc(var(--header-height) + 16px); transition: border-color 0.2s, box-shadow 0.2s; }
+    .question-card.flagged { border-color: var(--flag-color, #f5a524); box-shadow: 0 0 0 1px var(--flag-color, #f5a524); }
+    .q-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0.5rem; }
+    .q-index { flex-shrink: 0; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--text-accent); background: var(--bg-active); border-radius: 8px; padding: 3px 9px; }
+    .q-spacer { flex: 1; }
+    .flag-btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; padding: 5px 11px; border-radius: 100px; background: none; border: 1px solid var(--border-color); color: var(--text-muted); font-family: var(--font-main); font-size: 0.74rem; font-weight: 600; transition: all 0.18s; }
+    .flag-btn:hover { color: var(--flag-color, #f5a524); border-color: var(--flag-color, #f5a524); }
+    .question-card.flagged .flag-btn { background: var(--flag-color, #f5a524); color: #1a1205; border-color: var(--flag-color, #f5a524); }
+
+    .lo-box { display: none; margin-bottom: 1rem; padding: 0.7rem 0.9rem; border-radius: 10px; background: var(--bg-input); border-left: 3px solid var(--text-accent); font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    body.show-lo .lo-box { display: block; }
+    .lo-box .lo-tag { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); display: block; margin-bottom: 3px; }
+
+    .question-text { font-size: 1.02rem; line-height: 1.6; color: var(--text-main); margin-bottom: 1.1rem; }
+
+    .options-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+    .option-label { display: flex; align-items: flex-start; gap: 12px; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 11px; cursor: pointer; transition: background 0.16s, border-color 0.16s; background: var(--bg-input); }
+    .option-label:hover { border-color: var(--text-accent); background: var(--bg-hover); }
+    .option-label input { display: none; }
+    .opt-key { flex-shrink: 0; width: 24px; height: 24px; border-radius: 7px; border: 1.5px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); transition: all 0.16s; }
+    .option-label:hover .opt-key { border-color: var(--text-accent); color: var(--text-accent); }
+    .option-label.selected { border-color: var(--text-accent); background: var(--bg-active); }
+    .option-label.selected .opt-key { background: var(--text-accent); border-color: var(--text-accent); color: var(--button-text); }
+    .opt-text { flex: 1; font-size: 0.94rem; line-height: 1.45; padding-top: 1px; }
+    .option-label.locked { cursor: default; pointer-events: none; }
+    .option-label.answer-correct { border-color: var(--correct, #34d399); background: var(--correct-bg, rgba(52,211,153,0.14)); }
+    .option-label.answer-correct .opt-key { background: var(--correct, #34d399); border-color: var(--correct, #34d399); color: #05130d; }
+    .option-label.answer-wrong { border-color: var(--incorrect, #f87171); background: var(--incorrect-bg, rgba(248,113,113,0.12)); }
+    .option-label.answer-wrong .opt-key { background: var(--incorrect, #f87171); border-color: var(--incorrect, #f87171); color: #150404; }
+    .opt-mark { margin-left: auto; font-weight: 700; font-size: 0.9rem; align-self: center; }
+    .option-label.answer-correct .opt-mark { color: var(--correct, #34d399); }
+    .option-label.answer-wrong .opt-mark { color: var(--incorrect, #f87171); }
+
+    /* submit + feedback */
+    .q-submit { margin-top: 1.1rem; display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.86rem; font-weight: 700; background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-bg); transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s; }
+    .q-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px var(--card-glow); }
+    .q-submit.hidden { display: none; }
+
+    .feedback { display: none; margin-top: 1.2rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); animation: fb-in 0.3s ease; }
+    @keyframes fb-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .feedback.show { display: block; }
+    .feedback-header { display: flex; align-items: center; gap: 9px; padding: 0.8rem 1.1rem; font-weight: 700; font-size: 0.92rem; }
+    .feedback.correct .feedback-header { background: var(--correct-bg, rgba(52,211,153,0.16)); color: var(--correct, #34d399); }
+    .feedback.incorrect .feedback-header { background: var(--incorrect-bg, rgba(248,113,113,0.14)); color: var(--incorrect, #f87171); }
+    .feedback-body { padding: 1rem 1.1rem; }
+    .feedback-body .fb-line { font-size: 0.9rem; margin-bottom: 0.7rem; color: var(--text-main); }
+    .feedback-body .fb-line:last-child { margin-bottom: 0; }
+    .rationale, .source { font-size: 0.88rem; line-height: 1.6; color: var(--text-main); padding: 0.8rem 0.95rem; border-radius: 9px; background: var(--bg-input); margin-top: 0.7rem; }
+    .rationale strong, .source strong { color: var(--text-accent); }
+    .source { color: var(--text-muted); font-size: 0.82rem; }
+
+    /* finish bar + results */
+    .quiz-end { margin-top: 2.4rem; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .quiz-end.hidden { display: none; }
+    .btn-finish { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 11px; cursor: pointer; font-family: var(--font-main); font-size: 0.95rem; font-weight: 700; background: var(--button-bg); color: var(--button-text); border: none; transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s; }
+    .btn-finish:hover { transform: translateY(-1px); box-shadow: 0 8px 22px var(--card-glow); }
+    .btn-finish:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* Tutor live score tracker (top of page) */
+    #tutor-tracker { display: none; margin-bottom: 1.6rem; scroll-margin-top: calc(var(--header-height) + 16px); }
+    #tutor-tracker.show { display: block; animation: fb-in 0.3s ease; }
+    .tt-card { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 10%, transparent), transparent); }
+    .tt-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-accent); }
+    .tt-main { font-size: 1.05rem; font-weight: 800; color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .tt-main .tt-pct { color: var(--text-accent); }
+    .tt-tallies { display: flex; gap: 14px; flex-wrap: wrap; margin-left: auto; font-size: 0.82rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .tt-tallies .tt-correct { color: var(--correct, #34d399); }
+    .tt-tallies .tt-incorrect { color: var(--incorrect, #f87171); }
+    .tt-tallies .tt-remaining { color: var(--text-muted); }
+    .tt-track { flex-basis: 100%; height: 7px; border-radius: 100px; background: var(--bg-input); overflow: hidden; border: 1px solid var(--border-subtle); }
+    .tt-fill { height: 100%; width: 0%; border-radius: 100px; background: linear-gradient(90deg, var(--text-accent), var(--text-accent-2)); transition: width 0.35s ease; }
+
+    #results-card { display: none; margin-bottom: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; background: var(--bg-card); scroll-margin-top: calc(var(--header-height) + 16px); }
+    #results-card.show { display: block; animation: fb-in 0.4s ease; }
+    .results-top { padding: 1.6rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 12%, transparent), transparent); }
+    .score-ring { --pct: 0; flex-shrink: 0; width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--text-accent) calc(var(--pct) * 1%), var(--bg-input) 0); }
+    .score-ring-inner { width: 82px; height: 82px; border-radius: 50%; background: var(--bg-card); display: grid; place-items: center; text-align: center; }
+    .score-ring .sr-pct { font-size: 1.5rem; font-weight: 800; color: var(--text-main); line-height: 1; }
+    .score-ring .sr-lbl { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+    .results-headline { flex: 1; min-width: 200px; }
+    .results-headline h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .results-headline p { font-size: 0.9rem; color: var(--text-muted); }
+    .results-tally { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .results-tally .tally { font-size: 0.86rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .results-tally .correct-tally { color: var(--correct, #34d399); }
+    .results-tally .incorrect-tally { color: var(--incorrect, #f87171); }
+    .results-saved { font-size: 0.8rem; color: var(--text-muted); }
+    .results-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 1.1rem 1.5rem; border-top: 1px solid var(--border-subtle); }
+    .results-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.82rem; font-weight: 600; background: var(--bg-input); color: var(--text-main); border: 1px solid var(--border-color); text-decoration: none; transition: all 0.18s; }
+    .results-btn:hover { border-color: var(--text-accent); color: var(--text-accent); }
+    .results-btn.primary { background: var(--button-bg); color: var(--button-text); border-color: var(--button-bg); }
+    .results-btn.danger-outline { color: #f87171; border-color: rgba(248,113,113,0.5); }
+    .results-btn.danger-outline:hover { background: #f87171; color: #fff; border-color: #f87171; }
+    .section-scores { padding: 0 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .sec-score-row { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; }
+    .sec-score-name { flex: 1; color: var(--text-main); }
+    .sec-score-bar { flex: 1.4; height: 7px; border-radius: 100px; background: var(--bg-input); overflow: hidden; }
+    .sec-score-bar span { display: block; height: 100%; background: var(--text-accent); border-radius: 100px; }
+    .sec-score-val { font-variant-numeric: tabular-nums; color: var(--text-muted); min-width: 48px; text-align: right; }
+
+    /* Retry results — how the previously-missed questions went on the retry pass */
+    .retry-results { margin: 0 1.5rem 1.4rem; padding: 1rem 1.1rem; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-active); }
+    .retry-results-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 0.75rem; }
+    .rr-title { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-accent); }
+    .rr-score { font-size: 0.9rem; color: var(--text-main); }
+    .rr-score b { font-variant-numeric: tabular-nums; }
+    .retry-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .retry-chip { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; padding: 4px 9px; border-radius: 7px; border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-muted); cursor: pointer; transition: transform 0.15s, border-color 0.15s; }
+    .retry-chip:hover { transform: translateY(-1px); }
+    .retry-chip.ok { color: var(--correct, #34d399); border-color: var(--correct, #34d399); background: var(--correct-bg, rgba(52,211,153,0.14)); }
+    .retry-chip.no { color: var(--incorrect, #f87171); border-color: var(--incorrect, #f87171); background: var(--incorrect-bg, rgba(248,113,113,0.12)); }
+
+    .quiz-return { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 2.5rem; }
+    .btn-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.88rem; color: var(--text-accent); border: 1px solid var(--border-color); background: none; font-family: var(--font-main); cursor: pointer; transition: all 0.2s; }
+    .btn-link:hover { background: var(--bg-active); border-color: var(--text-accent); }
+
+    #site-footer { position: relative; z-index: 1; text-align: center; padding: 2rem 1rem 2.6rem; border-top: 1px solid var(--border-subtle); font-size: 0.76rem; color: var(--text-muted); }
+    #site-footer a { color: var(--text-accent); text-decoration: none; }
+
+    /* Highlighter tool */
+    /* Sidebar tools (reset) */
+    .nav-tools { padding: 1rem 1.15rem 0; margin-top: 0.6rem; border-top: 1px solid var(--border-subtle); }
+    .nav-tool-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0.6rem 0.8rem; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.8rem; font-weight: 600; background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-muted); transition: all 0.18s; }
+    .nav-tool-btn svg { flex-shrink: 0; }
+    .nav-tool-btn.danger:hover { color: #fff; background: #f87171; border-color: #f87171; }
+    .nav-tool-btn.confirm { color: #fff; background: #f87171; border-color: #f87171; }
+    body.hl-mode .question-text, body.hl-mode .opt-text { cursor: text; }
+    body.hl-mode .question-card { --hl-hint: 1; }
+    mark.hl { background: var(--flag-color, #f5a524); color: #1a1205; border-radius: 3px; padding: 0 1px; cursor: pointer; }
+    [data-theme="light"] mark.hl, [data-theme="sepia"] mark.hl { color: #1a1205; }
+
+    /* Strikethrough / eliminated option */
+    .option-label.eliminated { opacity: 0.5; }
+    .option-label.eliminated .opt-text { text-decoration: line-through; text-decoration-thickness: 2px; }
+    .option-label.eliminated .opt-key { opacity: 0.6; }
+
+    .retry-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 1.4rem; padding: 0.85rem 1.1rem; border-radius: 12px; background: var(--bg-active); border: 1px solid var(--border-color); font-size: 0.88rem; color: var(--text-main); }
+
+    /* color-accents off: neutralize the multi-color bits already handled by theme --solid-accent */
+    body.no-accents .quiz-title { -webkit-text-fill-color: var(--solid-accent); }
+
+    @media (max-width: 820px) {
+        :root { --sidebar-width: 280px; }
+        #sidebar { position: fixed; top: var(--header-height); left: 0; z-index: 190; box-shadow: 8px 0 34px rgba(0,0,0,0.4); }
+        #sidebar.collapsed { width: 0; opacity: 0; padding: 0; }
+        #main-content { padding: 1.4rem 1.1rem 5rem; }
+        /* Keep mode toggle in the header; move only the theme picker into settings */
+        .header-controls .header-theme { display: none; }
+        .mobile-only-row { display: flex; }
+        #settings-panel { min-width: 258px; max-width: calc(100vw - 1.6rem); }
+        .mode-switch button { padding: 0 11px; }
+    }
+    @media (max-width: 560px) {
+        .brand-full { display: none; } .brand-short { display: inline; } .brand-sub { display: none; }
+        .brand-title { font-size: 1.05rem; overflow: visible; }
+        .icon-btn .btn-label { display: none; }   /* LO button shows icon only */
+        .header-controls { gap: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } html { scroll-behavior: auto; } }
+    </style>
+</head>
+
+<body>
+
+<canvas id="neural-bg" aria-hidden="true"></canvas>
+<div id="wash" aria-hidden="true"></div>
+
+<div id="app">
+
+<!-- ============ HEADER ============ -->
+<header id="main-header">
+    <button id="sidebar-toggle" title="Toggle question navigator" aria-label="Toggle question navigator">
+        <span></span><span></span><span></span>
+    </button>
+
+    <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+                <defs><linearGradient id="bm" x1="0" y1="0" x2="32" y2="32"><stop offset="0" stop-color="var(--text-accent)"/><stop offset="1" stop-color="var(--text-accent-2)"/></linearGradient></defs>
+                <path d="M16 4c-3 0-5.5 2-6 4.7C7.5 9 5.5 11 5.5 13.5c0 1.2.4 2.3 1.2 3.1-.5.8-.8 1.7-.8 2.7 0 2.7 2.2 4.9 4.9 4.9.3 1.6 1.7 2.8 3.4 2.8 1 0 1.8-.4 2.4-1V6.6C16.5 5 16.3 4 16 4z" fill="url(#bm)" opacity="0.92"/>
+                <path d="M16 4c3 0 5.5 2 6 4.7 2.5.3 4.5 2.3 4.5 4.8 0 1.2-.4 2.3-1.2 3.1.5.8.8 1.7.8 2.7 0 2.7-2.2 4.9-4.9 4.9-.3 1.6-1.7 2.8-3.4 2.8-1 0-1.8-.4-2.4-1V6.6C15.5 5 15.7 4 16 4z" fill="url(#bm)"/>
+                <circle cx="11" cy="13" r="1.1" fill="var(--bg-card)"/><circle cx="21" cy="13" r="1.1" fill="var(--bg-card)"/><circle cx="13" cy="19" r="1.1" fill="var(--bg-card)"/><circle cx="19" cy="19" r="1.1" fill="var(--bg-card)"/>
+            </svg>
+        </div>
+        <div class="brand-text">
+            <div class="brand-title"><span class="brand-full">Brain &amp; Behavior</span><span class="brand-short">B&amp;B</span></div>
+            <div class="brand-sub">Week 51 · B&amp;B Wk 1 · Part 1 Practice Quiz</div>
+        </div>
+    </div>
+
+    <div class="header-controls">
+        <div class="mode-switch" role="group" aria-label="Quiz mode">
+            <button id="mode-tutor" class="active" onclick="setMode('tutor')" title="Tutor mode: instant feedback per question">Tutor</button>
+            <button id="mode-exam" onclick="setMode('exam')" title="Exam mode: grade at the end">Exam</button>
+        </div>
+        <button id="grade-btn" class="icon-btn" onclick="toggleGradeTrack()" title="Live score tracker (tutor mode)" aria-label="Toggle live score tracker" aria-pressed="false">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10"/><path d="M10 19V5"/><path d="M16 19v-7"/><path d="M3 21h18"/></svg>
+            <span class="btn-label">Grade</span>
+        </button>
+        <button id="lo-btn" class="icon-btn" onclick="toggleLOs()" title="Show / hide learning objectives" aria-label="Show or hide learning objectives">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+            <span class="btn-label">LOs</span>
+        </button>
+        <button id="hl-btn" class="icon-btn" onclick="toggleHighlighter()" title="Highlighter (H)" aria-label="Toggle highlighter">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 4.5l4 4-8.5 8.5-4 1 1-4z"/><path d="M12.5 7.5l4 4"/><path d="M4 20.5h6" stroke-width="2.4"/></svg>
+        </button>
+        <select id="theme-select" class="header-theme" title="Choose colour theme">
+            <option value="slate">Slate Blue</option>
+            <option value="light">Modern Light</option>
+            <option value="sepia">Sepia</option>
+            <option value="charcoal">Charcoal</option>
+            <option value="forest">Forest</option>
+            <option value="plum">Plum</option>
+            <option value="navy">Navy</option>
+            <option value="midnight">Midnight</option>
+            <option value="contrast">High Contrast</option>
+            <option value="custom">⚙️ Custom…</option>
+        </select>
+        <button id="settings-btn" class="icon-btn" onclick="toggleSettings()" title="Settings" aria-label="Settings">⚙️</button>
+    </div>
+
+    <div id="custom-builder">
+        <div class="cpg"><label>Background</label><input type="color" id="color-bg" value="#1e293b" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Cards</label><input type="color" id="color-card" value="#334155" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Text</label><input type="color" id="color-text" value="#f1f5f9" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Accent</label><input type="color" id="color-accent" value="#38bdf8" oninput="updateCustomTheme()"></div>
+    </div>
+
+    <div id="settings-panel">
+        <!-- Theme moves in here on small screens (header keeps it on desktop) -->
+        <div class="settings-row mobile-only-row">
+            <div class="settings-text"><div class="settings-title">Theme</div><div class="settings-sub">Colour palette</div></div>
+            <select id="theme-select-m" class="mini-select" title="Choose colour theme">
+                <option value="slate">Slate Blue</option>
+                <option value="light">Modern Light</option>
+                <option value="sepia">Sepia</option>
+                <option value="charcoal">Charcoal</option>
+                <option value="forest">Forest</option>
+                <option value="plum">Plum</option>
+                <option value="navy">Navy</option>
+                <option value="midnight">Midnight</option>
+                <option value="contrast">High Contrast</option>
+                <option value="custom">⚙️ Custom…</option>
+            </select>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Animated background</div><div class="settings-sub">Subtle motion behind the page</div></div>
+            <button id="bg-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleBackground()"><span class="toggle-knob"></span></button>
+        </div>
+        <div class="settings-row settings-subrow" id="bg-style-row">
+            <div class="settings-text"><div class="settings-title">Background style</div><div class="settings-sub">Choose the animation</div></div>
+            <select id="bg-style-select" class="mini-select" onchange="setBgStyle(this.value)">
+                <option value="neural">Neural network</option>
+                <option value="starfield">Starfield</option>
+                <option value="bubbles">Floating orbs</option>
+                <option value="grid">Pulsing grid</option>
+                <option value="waves">Waves</option>
+            </select>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Color accents</div><div class="settings-sub">Corner glow &amp; colored highlights</div></div>
+            <button id="accent-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleAccents()"><span class="toggle-knob"></span></button>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Pinned header</div><div class="settings-sub">Keep the header fixed while scrolling</div></div>
+            <button id="pin-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleHeader()"><span class="toggle-knob"></span></button>
+        </div>
+    </div>
+</header>
+
+<div id="body-layout">
+
+    <!-- ============ SIDEBAR : question navigator ============ -->
+    <nav id="sidebar" aria-label="Question navigator">
+        <div class="nav-summary">
+            <div class="nav-summary-title">Progress</div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            <div class="nav-stats">
+                <span><b id="answered-count">0</b> / <span id="total-count">0</span> answered</span>
+                <span class="nav-flag-count">⚑ <b id="flag-count">0</b></span>
+            </div>
+        </div>
+        <div id="nav-sections"></div>
+        <div class="nav-legend" id="nav-legend">
+            <div class="legend-item"><span class="legend-swatch"></span> Unanswered</div>
+            <div class="legend-item"><span class="legend-swatch answered"></span> Answered</div>
+            <div class="legend-item"><span class="legend-swatch flagged"></span> Flagged</div>
+            <div class="legend-item legend-graded" style="display:none"><span class="legend-swatch correct"></span> Correct</div>
+            <div class="legend-item legend-graded" style="display:none"><span class="legend-swatch incorrect"></span> Incorrect</div>
+        </div>
+        <div class="nav-tools">
+            <button id="reset-quiz-btn" class="nav-tool-btn danger" onclick="resetQuiz()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+                Reset quiz
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ MAIN ============ -->
+    <main id="main-content">
+        <div class="quiz-hero">
+            <div class="quiz-eyebrow">Brain &amp; Behavior · Week 51 · B&amp;B Week 1</div>
+            <h1 class="quiz-title">Part 1 — Practice Quiz</h1>
+            <div class="quiz-meta">
+                <div class="qm"><span class="n" id="meta-q">0</span><span class="l">Questions</span></div>
+                <div class="qm"><span class="n" id="meta-sec">0</span><span class="l">Sections</span></div>
+                <div class="qm"><span class="n" id="meta-mode">Tutor</span><span class="l">Mode</span></div>
+            </div>
+            <div class="mode-hint" id="mode-hint"><span class="mh-ic">💡</span><span id="mode-hint-text">Tutor mode: submit each question to see the answer and explanation right away.</span></div>
+        </div>
+
+        <div id="tutor-tracker" aria-live="polite"></div>
+        <div id="results-card"></div>
+        <div id="quiz-root"></div>
+
+        <div class="quiz-end hidden" id="quiz-end">
+            <button class="btn-finish" id="finish-btn" onclick="finishQuiz()">Submit &amp; grade quiz</button>
+            <button class="results-btn danger-outline" onclick="resetQuiz()">Reset quiz</button>
+        </div>
+
+        <div class="quiz-return">
+            <a href="https://ibecerramcg.github.io/BnB-Practice-Quizzes/" class="btn-link">← Return to B&amp;B Directory</a>
+            <button class="btn-link" id="view-score-btn" onclick="jumpToTracker()" style="display:none">↑ View score</button>
+            <button class="btn-link" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
+        </div>
+    </main>
+</div>
+
+<footer id="site-footer">Created by Ian Becerra · <a href="mailto:ibecerra@augusta.edu">ibecerra@augusta.edu</a> · Medical College of Georgia, Class of 2029</footer>
+</div>
+
+<script>
+/* ============================================================
+   QUIZ DATA  (extracted from the original Week-46 quiz file)
+============================================================ */
+const QUIZ_ID = 'w51p1';   // must match the B&B directory card data-quiz
+const quizData = [{"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO1: Describe the three mechanisms used by PTH to regulate serum calcium concentration and the importance of this regulation.", "question": "A 55-year-old woman is found to have asymptomatic hypocalcemia on routine blood work. In response to this low serum calcium concentration, her parathyroid glands secrete parathyroid hormone (PTH) to restore homeostasis. In the skeletal system, this hormone acts as a \"borrowing\" mechanism by directly inducing which of the following cellular changes?", "options": {"A": "Decreasing the activity of osteocytes", "B": "Increasing the release of calcitonin", "C": "Increasing osteoclast numbers and activity", "D": "Increasing the synthesis of collagen matrix", "E": "Inhibiting the deposition of hydroxyapatite crystals"}, "correctAnswer": "C", "rationale": "PTH maintains blood calcium levels via three main mechanisms: increasing gut absorption (via vitamin D), decreasing renal excretion, and \"borrowing\" from the bone reservoir. In the bone, PTH mobilizes calcium by increasing the release from amorphous calcium compounds and increasing osteoclast numbers and activity (bone degradation).", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slide 13: '\"Borrow\" from the bone reservoir – PTH mobilizes calcium from bone (by increasing release from amorphous calcium compounds and increasing osteoclast numbers and activity)'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO1: Describe the three mechanisms used by PTH to regulate serum calcium concentration and the importance of this regulation.", "question": "A 60-year-old man with hypoparathyroidism requires continuous supplementation to maintain normal serum calcium levels. He is given a synthetic analog of parathyroid hormone (PTH). Within the gastrointestinal tract, this hormone enhances calcium uptake primarily by increasing the production of which of the following downstream mediators?", "options": {"A": "Active Vitamin D", "B": "Calcitonin", "C": "Cortisol", "D": "Inactive 25-hydroxyvitamin D3", "E": "Phospholipase C"}, "correctAnswer": "A", "rationale": "To increase serum calcium, PTH acts to increase uptake/absorption in the gut by increasing the production of active Vitamin D. Vitamin D then functions through the Vitamin D receptor (VDR) to increase the expression of a calcium-binding protein in the gut.", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slide 13: 'Increase uptake/absorption – PTH increases production of active Vitamin D'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO2: Describe how PTH secretion is regulated and its effects when in excess or deficient.", "question": "A 45-year-old woman presents to the clinic with recurrent nephrolithiasis (kidney stones) and diffuse bone pain. A dual-energy x-ray absorptiometry (DEXA) scan reveals significantly reduced bone mineral density. Laboratory testing reveals a remarkably high serum calcium concentration and elevated parathyroid hormone levels. Her constellation of findings (osteitis fibrosa cystica and kidney stones) is most characteristic of which of the following conditions?", "options": {"A": "Addison's disease", "B": "Hyperparathyroidism", "C": "Hypoparathyroidism", "D": "Rickets", "E": "Vitamin D deficiency"}, "correctAnswer": "B", "rationale": "Hyperparathyroidism results in high serum calcium concentration, decreased nerve and muscle excitability, kidney stones, and reduced bone mineral density leading to an increased risk of fracture (osteitis fibrosa cystica).", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slide 16: 'Hyperparathyroidism • High serum calcium concentration • Decreased nerve and muscle excitability • Kidney stones • Reduced bone mineral density and increased risk of fracture (osteitis fibrosa cystica)'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO2: Describe how PTH secretion is regulated and its effects when in excess or deficient.", "question": "A 35-year-old woman undergoes a total thyroidectomy for papillary thyroid carcinoma. On postoperative day two, she complains of tingling around her mouth and cramping in her hands. When the nurse inflates a blood pressure cuff on her arm, her wrist and fingers involuntarily flex into a spasm (Trousseau sign). Which of the following conditions is most likely responsible for this increased neuromuscular excitability?", "options": {"A": "Hyperaldosteronism", "B": "Hyperparathyroidism", "C": "Hypoparathyroidism", "D": "Pituitary apoplexy", "E": "Thyrotoxicosis"}, "correctAnswer": "C", "rationale": "The patient is exhibiting carpopedal spasm (Trousseau sign), which is a classic manifestation of increased nerve and muscle excitability due to a low serum calcium concentration. Postoperative hypoparathyroidism is a common cause of this following thyroid surgery.", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slide 17: 'Hypoparathyroidism • Low serum calcium concentration • Increased nerve and muscle excitability carpopedal spasm... Trousseau sign'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO3: Identify key adrenal hormones and their effects on the body, including when they are in excess or deficient.", "question": "A 30-year-old man presents with progressive fatigue, weight loss, and dizziness upon standing. Physical examination reveals splotchy hyperpigmentation around his lips and on his buccal mucosa. Laboratory testing shows hypoglycemia and hypotension. He is diagnosed with an autoimmune condition that is actively destroying his adrenal cortex. The hyperpigmentation in this specific disease is directly caused by the excessive secretion of which of the following?", "options": {"A": "Adrenocorticotropin (ACTH) and precursor fragments", "B": "Aldosterone", "C": "Cortisol", "D": "Dehydroepiandrosterone (DHEA)", "E": "Epinephrine"}, "correctAnswer": "A", "rationale": "The patient has Addison's disease (primary adrenal insufficiency). The lack of cortisol eliminates negative feedback, producing excess CRF and ACTH. ACTH arises from the POMC precursor protein, which also produces Melanocyte Stimulating Hormone (MSH). This excess stimulates melanin production, causing the characteristic hyperpigmentation.", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slides 27-28: 'Pigmentation disorders - The lack of cortisol produces excess CRF secretion. CRF also stimulates melanin production, resulting in splotchy pigmentation around areas of thin skin' AND 'ACTH (as well as other hormones like MSH...) arise from the POMC precursor protein'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO3: Identify key adrenal hormones and their effects on the body, including when they are in excess or deficient.", "question": "A 50-year-old woman with rheumatoid arthritis has been taking high-dose prednisone (a pharmacologic corticosteroid) for several years. She currently presents with central adiposity, a rounded \"moon\" face, a fat pad between her shoulder blades (\"buffalo hump\"), and purple striae on her abdomen. Which of the following best classifies her current endocrine disorder?", "options": {"A": "Addison's disease", "B": "Congenital adrenal hyperplasia", "C": "Conn's syndrome", "D": "Cushing's disease", "E": "Cushing's syndrome"}, "correctAnswer": "E", "rationale": "Cushing's syndrome is associated with excess adrenal glucocorticoid. It is most commonly caused by the excess consumption of pharmacologic corticosteroids (like prednisone). \"Cushing's disease\" specifically refers to the secondary condition caused by a pituitary tumor secreting excess ACTH.", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slides 29-30: 'Cushing’s Syndrome is most commonly caused by excess consumption of pharmacologic corticosteroids... Symptoms include central adiposity, “moon face” (facial deposition of fat), ”buffalo hump”... and striae'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO3: Identify key adrenal hormones and their effects on the body, including when they are in excess or deficient.", "question": "A male infant is born with ambiguous genitalia and quickly develops life-threatening salt-wasting and hypotension. Genetic testing reveals a mutation in a steroidogenic enzyme, leading to a complete lack of cortisol and aldosterone, with a massive shunting of precursors into adrenal androgen synthesis. Which of the following enzymes is most likely deficient in this infant?", "options": {"A": "11-beta-hydroxysteroid dehydrogenase (HSD11B2)", "B": "17-alpha-hydroxylase (CYP17)", "C": "21-hydroxylase (CYP21)", "D": "Aromatase", "E": "Phenylethanolamine N-methyltransferase (PNMT)"}, "correctAnswer": "C", "rationale": "Congenital Adrenal Hyperplasia (CAH) is most commonly caused by 21-hydroxylase deficiency. This prevents the synthesis of aldosterone and cortisol, leading to salt wasting and overproduction of androgens (virilization/precocious puberty).", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slide 34: 'Congenital Adrenal Hyperplasia (CAH) Most common cause is 21-hydroxylase deficiency. Symptoms of CAH: • Virilization or precocious puberty • Salt wasting'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO3: Identify key adrenal hormones and their effects on the body, including when they are in excess or deficient.", "question": "A 45-year-old man consumes extremely large quantities of black licorice daily. Licorice contains glycyrrhetinic acid, which is a potent inhibitor of the type 2 11-beta hydroxysteroid dehydrogenase (HSD11B2) enzyme. Inhibition of this specific enzyme will lead to the inappropriate activation of mineralocorticoid receptors in the kidney by which of the following circulating hormones?", "options": {"A": "Aldosterone", "B": "Cortisol", "C": "Deoxycorticosterone", "D": "Epinephrine", "E": "Progesterone"}, "correctAnswer": "B", "rationale": "Cortisol circulates at roughly 1000x the concentration of aldosterone. To prevent cortisol from swamping the mineralocorticoid receptor (MR), aldosterone-responsive tissues express HSD11B2, which inactivates cortisol to cortisone. Licorice inhibits HSD11B2, allowing cortisol to inappropriately activate the MR.", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slides 41-43: 'Licorice contains glycyrrhetinic acid, an inhibitor of HSD11B2' AND 'HSD11B2 protects the mineralocorticoid receptor from cortisol... 2. Many aldosterone target tissues inactivate cortisol to cortisone with type 2 11b hydroxysteroid dehydrogenase'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO4: Understand the function of the adrenal medulla and its pathophysiology.", "question": "A 55-year-old man presents with episodic headaches, profound sweating, and severely elevated blood pressure. A 24-hour urine collection reveals highly elevated levels of metanephrines and vanillylmandelic acid (VMA). Imaging localizes a 4-cm tumor within the adrenal gland. This tumor is primarily composed of which of the following cell types?", "options": {"A": "Chromaffin cells", "B": "Lactotrophs", "C": "Pituicytes", "D": "Spongiform cells", "E": "Zona fasciculata cells"}, "correctAnswer": "A", "rationale": "The patient has a pheochromocytoma, which is a catecholamine-producing tumor of the adrenal medulla. These tumors are composed of chromaffin cells.", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slide 50: 'CATECHOLAMINE EXCESS: PHEOCHROMOCYTOMA • Catecholamine-producing tumors composed of chromaffin cells • Causes hypertension and other signs/symptoms of catecholamine excess'"}, {"section": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid", "fullLO": "LO4: Understand the function of the adrenal medulla and its pathophysiology.", "question": "A pharmacologist is studying the synthesis of catecholamines in the adrenal medulla. The final step of the pathway converts norepinephrine to epinephrine, which constitutes 80% of the medullary hormonal output. Which of the following enzymes catalyzes this specific final step and is highly regulated by local cortisol concentrations?", "options": {"A": "Aromatic L-amino acid decarboxylase", "B": "Dopamine beta-hydroxylase", "C": "Phenylethanolamine-N-methyltransferase (PNMT)", "D": "Tyrosine hydroxylase", "E": "Tyrosine-3-monooxygenase"}, "correctAnswer": "C", "rationale": "Epinephrine is the major catecholamine produced in the medulla due to the presence of PNMT. PNMT converts norepinephrine to epinephrine and is regulated by cortisol.", "source": "Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid PDF, slides 46-47: 'Epinephrine is the major catecholamine produced in the medulla due to the presence of PNMT (which is regulated by cortisol)'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO1: Classification of lesions involving Pituitary (WHO, 2022), and hypothalamus.", "question": "A 45-year-old woman is found to have a 1.2-cm mass in the sella turcica during an MRI for chronic headaches. A biopsy is planned. Under the WHO 2022 classification of sellar and supra-sellar lesions, which of the following is the most accurate contemporary diagnostic terminology for a benign, adeno-hypophyseal neoplasm?", "options": {"A": "Craniopharyngioma", "B": "Hypophysitis", "C": "Pituitary adenocarcinoma", "D": "Pituitary Neuroendocrine Tumor (PitNET)", "E": "Rathke cleft cyst"}, "correctAnswer": "D", "rationale": "The WHO 2022 classification classifies pituitary adenomas (adeno-hypophyseal lesions) under the new terminology of Pituitary Neuroendocrine Tumor (PitNET).", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 9: 'WHO Classification of sellar / supra-sellar lesions... Adeno-hypophyseal | Pituitary adenoma (PitNET*)'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Pituitary hyperplasia", "question": "A 28-year-old woman in her third trimester of pregnancy undergoes an MRI for sudden, severe vision changes. The scan reveals a symmetrically enlarged pituitary gland without a discrete mass. She is diagnosed with physiologic pituitary hyperplasia. Which of the following cellular populations is predominantly responsible for this normal expansion during pregnancy?", "options": {"A": "Corticotrophs", "B": "Gonadotrophs", "C": "Prolactin (PRL) cells", "D": "Somatotrophs", "E": "Thyrotrophs"}, "correctAnswer": "C", "rationale": "Physiologic pituitary hyperplasia commonly occurs during pregnancy. This expansion is mainly due to an increase in prolactin (PRL) secreting cells to prepare for lactation.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slides 10 & 30: 'Pituitary hyperplasia • Etiology – Physiologic: Pregnancy' AND 'Pregnancy is associated with physiologic expansion (x2) of anterior pituitary (mainly PRL cells)'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Prolactinoma", "question": "A 30-year-old pre-menopausal woman presents with a 6-month history of amenorrhea and bilateral galactorrhea. She takes no medications and her pregnancy test is negative. Serum prolactin is extremely elevated at 250 ng/mL. An MRI demonstrates a 6-mm mass in the anterior pituitary. Which of the following is the most likely diagnosis?", "options": {"A": "Craniopharyngioma", "B": "Gonadotroph adenoma", "C": "Physiologic hyperplasia", "D": "Prolactinoma (Micro-adenoma)", "E": "Stalk effect from a suprasellar meningioma"}, "correctAnswer": "D", "rationale": "Prolactinomas are the most common hyper-functioning adenomas. In pre-menopausal women, they commonly present as micro-adenomas (<10mm) and cause oligo/amenorrhea, galactorrhea, and infertility. A serum PRL >200 ng/ml is almost always diagnostic of a prolactinoma, distinguishing it from \"stalk effect\" elevations which are typically <200 ng/ml.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 15: 'PRL adenoma (Prolactinoma) • Most common adenoma (40%) & hyper-functioning adenoma... Symptoms-specific: Oligo- or Amenorrhea... Galactorrhea... Diagnosis: 1. Serum PRL = >200 ng/ml'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Growth hormone secreting adenoma", "question": "A 45-year-old man visits his physician complaining that his rings no longer fit and his shoe size has increased over the past year. Physical examination reveals a prominent jaw (prognathism), a deep voice, and coarse facial features. An MRI identifies a 1.5 cm pituitary mass. To most sensitively diagnose the suspected underlying hormonal excess, the physician should measure the serum level of which of the following?", "options": {"A": "Adrenocorticotropic hormone (ACTH)", "B": "Fasting serum glucose", "C": "Insulin-like growth factor 1 (IGF-1)", "D": "Random growth hormone (GH)", "E": "Thyroid-stimulating hormone (TSH)"}, "correctAnswer": "C", "rationale": "The patient exhibits signs of acromegaly, caused by a Growth Hormone (GH) secreting adenoma. Because serum GH fluctuates widely throughout the day, measuring age-adjusted Insulin-like Growth Factor 1 (IGF-1), which has minimal daily fluctuations, is the most sensitive diagnostic test.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slides 17-18: 'GH (somatotroph) adenomas... Acromegaly... Enlarged hands/feet... Enlarged head... Prognathism... Diagnosis: – Increased IGF-1 levels (age-adjusted) – Sensitive test (minimal daily fluctuations; so preferred over serum GH levels)'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: ACTH secreting adenoma", "question": "A 40-year-old woman presents with weight gain, easy bruising, and new-onset facial hair (hirsutism). Examination shows central obesity and purple abdominal striae. Laboratory testing reveals elevated serum cortisol and elevated plasma ACTH. Administration of high-dose (8 mg) dexamethasone successfully suppresses her serum cortisol levels. What is the most likely etiology of her Cushing syndrome?", "options": {"A": "Adrenal tumor", "B": "Ectopic ACTH production from a lung carcinoma", "C": "Exogenous steroid administration", "D": "Pituitary adenoma", "E": "Thyroid carcinoma"}, "correctAnswer": "D", "rationale": "The patient has Cushing's disease caused by an ACTH-secreting pituitary adenoma. In the diagnostic pathway, pituitary adenomas are characterized by high plasma ACTH and suppression of cortisol by high-dose (8 mg) dexamethasone. In contrast, ectopic ACTH sources (like lung cancer) typically do not suppress with high-dose dexamethasone.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 20: 'ACTH (corticotroph) adenoma... Identify source: Pituitary adenoma | High [ACTH] | Suppressed [High-dose DST]'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Gonadotrophic adenoma", "question": "A 65-year-old man complains of progressive bilateral peripheral vision loss. Perimetry testing confirms bitemporal hemianopsia. Hormonal screening reveals no elevations in prolactin, growth hormone, cortisol, or thyroid hormones. MRI shows a 2.5-cm sellar mass compressing the optic chiasm. A biopsy reveals uniform polygonal cells with no markers of hormonal differentiation. Which of the following is the most likely diagnosis?", "options": {"A": "ACTH secreting adenoma", "B": "Craniopharyngioma", "C": "Null-cell / Gonadotroph adenoma", "D": "Prolactinoma", "E": "Rathke cleft cyst"}, "correctAnswer": "C", "rationale": "Clinically non-functioning pituitary adenomas (such as null-cell or gonadotroph adenomas) are defined by the lack of excess hormone secretion. Because they are slow-growing and silent, they typically present as macro-adenomas causing mass effect, such as visual field deficits (bitemporal hemianopsia) or hypopituitarism.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 22: 'Clinically Non-Functioning Pituitary adenomas (NFPA)... Null-cell adenoma (no markers of differentiation) or Gonadotroph adenoma... Presentation: Asymptomatic, Mass effect (visual deficits, hypopituitarism) Size: Macro-adenomas'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Hypopituitarism – Apoplexy", "question": "A 50-year-old man with a known, untreated pituitary macro-adenoma suddenly develops an excruciating headache, profound nausea, and double vision (diplopia). Upon arrival at the emergency department, his consciousness becomes altered. A STAT head CT indicates an acute hemorrhage localized within the sellar mass. Which of the following is the most appropriate immediate medical treatment for this life-threatening condition?", "options": {"A": "Cabergoline (Dopamine agonist)", "B": "Intravenous fluids and Corticosteroids", "C": "Intravenous Heparin", "D": "Octreotide (Somatostatin agonist)", "E": "Radioactive iodine therapy"}, "correctAnswer": "B", "rationale": "The patient is experiencing pituitary apoplexy, characterized by acute infarct or hemorrhage in a pituitary adenoma. This presents with sudden excruciating headache, diplopia, and altered consciousness. It is a medical emergency that requires immediate treatment with IV fluids and corticosteroids (followed by surgical decompression).", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 29: 'Hypopituitarism - Pituitary apoplexy... Acute infarct or hemorrhage in a pituitary adenoma... Headache (Sudden, excruciating) + Vomiting... Treatment: Medical emergency – I/v fluids, Corticosteroids'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Hypopituitarism – Sheehan’s syndrome", "question": "A 32-year-old woman is evaluated in the clinic because she has been unable to produce breast milk for her infant. She gave birth three weeks ago. Her medical records indicate the delivery was severely complicated by massive postpartum hemorrhage and shock requiring multiple blood transfusions. She also reports severe fatigue and anorexia. Her failure of lactation is most likely due to which of the following pathological processes?", "options": {"A": "Autoimmune lymphocytic infiltration of the pituitary stalk", "B": "Congenital defect in the diaphragm sellae", "C": "Enlargement of a prolactinoma", "D": "Granulomatous destruction of the hypothalamus", "E": "Ischemic necrosis of the normal anterior pituitary"}, "correctAnswer": "E", "rationale": "This presentation is classic for Sheehan's syndrome, which is ischemic necrosis of the normal anterior pituitary caused by severe post-partum hemorrhage and shock. The enlarged anterior pituitary of pregnancy is highly vulnerable to ischemia if perfusion is compromised. The most common early clinical sign is failure of lactation due to prolactin deficiency.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 30: 'Hypopituitarism – Sheehan syndrome • Etiology: Ischemic necrosis of the normal anterior pituitary: – Due to severe post-partum hemorrhage & shock... Clinical: – Failure of lactation after delivery (Postpartum PRL deficiency)'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Hypopituitarism – Hypophysitis.", "question": "A 35-year-old woman who is three months postpartum develops insidious onset of fatigue, weight loss, polyuria, and polydipsia. Laboratory evaluation confirms concurrent anterior and posterior hypopituitarism. MRI reveals an inflamed, thickened pituitary stalk without a discrete adenoma. The coexistence of anterior and posterior deficits strongly favors an inflammatory etiology over an adenoma. Which of the following is the most likely diagnosis?", "options": {"A": "Craniopharyngioma", "B": "Empty sella syndrome", "C": "Lymphocytic hypophysitis", "D": "Nelson's syndrome", "E": "Pituitary apoplexy"}, "correctAnswer": "C", "rationale": "Hypophysitis is an inflammatory process of the pituitary. Primary lymphocytic hypophysitis typically occurs in young females post-partum and is autoimmune. The coexistence of both anterior and posterior hypopituitarism (causing diabetes insipidus, indicated by polyuria/polydipsia) strongly favors inflammation over an adenoma.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 32: 'Hypopituitarism – Hypophysitis... Inflammatory process affecting the pituitary gland and/or infundibulum; – Coexistence of both anterior and posterior hypo-pituitarism favors inflammation over adenoma. Primary | Lymphocytic hypophysitis (young females, post-partum, auto-immune)'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Suprasellar / hypothalamic lesions – Craniopharyngioma", "question": "A 12-year-old boy presents with stunted growth and frequent headaches. Visual field testing demonstrates bitemporal hemianopsia. An MRI of the brain shows a large, cystic-solid, supra-sellar mass containing specks of calcification. The neurosurgeon suspects a tumor derived from the embryologic Rathke pouch. Histologic examination of this tumor is most likely to reveal which of the following pathognomonic features?", "options": {"A": "Concentric psammoma bodies", "B": "Diffuse sheets of small round blue cells", "C": "Intracellular neurofibrillary tangles", "D": "Peripheral palisading and stellate reticulum", "E": "Uniform acidophilic polygonal cells"}, "correctAnswer": "D", "rationale": "The patient has a pediatric Adamantinomatous Craniopharyngioma (ACP). Derived from Rathke pouch, it commonly presents as a supra-sellar mass with cystic/solid components and calcifications. Histologically, ACP is characterized by benign squamous epithelium with peripheral palisading, stellate reticulum (vacuolated cytoplasm), cysts, and \"wet keratin\" flakes.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slides 33-34: 'Craniopharyngioma... Derived from Rathke pouch. Age: bimodal – Most commonly pediatric... MRI: Location: Supra-sellar mass; Appearance: cystic-solid... calcifications' AND 'Pathology... Admantinomatous (ACP)... 2. Peripheral palisading 3. Stellate reticulum (vacuolated cytoplasm)'"}, {"section": "Pathology of the Pituitary & Hypothalamus", "fullLO": "LO2: Identify & differentiate important pathologic features, clinico-pathologic correlation, and pathophysiology of: Posterior pituitary syndromes", "question": "A 60-year-old man with small cell lung carcinoma presents with confusion and generalized weakness. Physical examination reveals normal skin turgor and no peripheral edema. Laboratory testing demonstrates a markedly low serum sodium (120 mEq/L), low serum osmolality (<280 mOsm/kg), and a high urine osmolality. Which of the following posterior pituitary syndromes is most likely responsible for this patient's findings?", "options": {"A": "Central Diabetes Insipidus", "B": "Empty Sella Syndrome", "C": "Nephrogenic Diabetes Insipidus", "D": "Sheehan's syndrome", "E": "Syndrome of inappropriate ADH (SIADH)"}, "correctAnswer": "E", "rationale": "Small cell lung carcinoma can cause paraneoplastic ectopic production of ADH, leading to SIADH. This syndrome is characterized by ADH excess, small urine output, high urine osmolality, low serum osmolality, and hyponatremia (low serum Na), without peripheral edema.", "source": "Pathology of the Pituitary & Hypothalamus PDF, slide 37: 'Posterior Pituitary Syndromes... Syndrome of inappropriate ADH (SIADH) | ADH excess | ... Urine Osmolality High ... Serum Osmolality Low ... Serum Na+ Low ... [No peripheral edema] ... Causes: Lung: Small cell lung carcinoma'"}, {"section": "Thyroid Disorders", "fullLO": "LO1: Recognize how to use thyroid function tests to diagnose thyroid disorders", "question": "A 45-year-old woman presents with a 3-month history of fatigue, weight gain, and cold intolerance. Suspecting a thyroid disorder, her primary care physician decides to order a single screening laboratory test. Which of the following is considered the most sensitive biochemical test for the diagnosis of primary hypothyroidism and hyperthyroidism?", "options": {"A": "Free T4 by Equilibrium Dialysis", "B": "Resin uptake study (T3 RU)", "C": "Serum Thyroid Stimulating Hormone (TSH)", "D": "Total T3", "E": "Total T4"}, "correctAnswer": "C", "rationale": "The Thyroid Stimulating Hormone (TSH) test is highly sensitive to minor changes in thyroid axis function, making it the most sensitive single screening test for both hypothyroidism and hyperthyroidism.", "source": "Thyroid Disorders PDF, slide 4: 'Thyroid Function Tests... TSH: This is the most sensitive test for hypothyroidism and hyperthyroidism'"}, {"section": "Thyroid Disorders", "fullLO": "LO1: Recognize how to use thyroid function tests to diagnose thyroid disorders", "question": "A 28-year-old woman in her second trimester of pregnancy has her thyroid labs drawn. Her physician notes that her total circulating thyroxine (Total T4) is abnormally elevated. However, her TSH is strictly within normal limits and she has no clinical symptoms of hyperthyroidism. Which of the following best explains this elevated Total T4 measurement?", "options": {"A": "Cross-reactivity with human chorionic gonadotropin (hCG)", "B": "Decreased peripheral conversion of T4 to T3", "C": "Development of an autonomous toxic adenoma", "D": "Increased circulating thyroid binding proteins", "E": "Increased iodine uptake by the fetal thyroid"}, "correctAnswer": "D", "rationale": "Total T4 measures both bound and free thyroxine. Conditions that increase circulating thyroid binding proteins (like the high estrogen state of pregnancy) will directly increase the measured Total T4 without causing clinical hyperthyroidism (as the free hormone remains normal).", "source": "Thyroid Disorders PDF, slide 4: 'Thyroid Function Tests | T4: Usually measured and reported as the total (bound and free) amount in a given sample. Changes in circulating thyroid binding proteins will change this measurement. Increased binding proteins will lead to increased total thyroxine'"}, {"section": "Thyroid Disorders", "fullLO": "LO2: Recognize the different causes of thyrotoxicosis", "question": "A 35-year-old woman presents with anxiety, resting tremor, sweating, and palpitations. Her thyroid function tests show an undetectable TSH and elevated Free T4. A radioactive iodine (123I) uptake scan demonstrates diffusely increased, homogenous uptake throughout the entire thyroid gland. Which of the following is the most likely diagnosis?", "options": {"A": "Factitious thyrotoxicosis", "B": "Grave's Disease", "C": "Struma Ovarii", "D": "Toxic Adenoma", "E": "Toxic Multinodular Goiter"}, "correctAnswer": "B", "rationale": "Grave's disease classically presents with clinical thyrotoxicosis, suppressed TSH, and a radioactive iodine scan showing diffuse, homogeneously increased uptake across the gland. (Toxic multinodular goiter shows inhomogeneous uptake, and an adenoma shows isolated uptake).", "source": "Thyroid Disorders PDF, slide 12: 'Thyrotoxicosis | Radiological Studies • Diffuse increased homogenous uptake of radioactive iodine in Grave’s Disease'"}, {"section": "Thyroid Disorders", "fullLO": "LO2: Recognize the different causes of thyrotoxicosis", "question": "A 26-year-old medical assistant presents to the clinic with severe heat intolerance, hyperactivity, and weight loss. Her heart rate is 115/min. Laboratory testing reveals an undetectable TSH and a high T4 level. However, a radioactive iodine scan demonstrates markedly decreased, absent uptake in the thyroid gland. A careful medical history reveals she has been taking unauthorized diet pills. Which of the following is the most likely cause of her presentation?", "options": {"A": "Factitious thyrotoxicosis", "B": "Grave's Disease", "C": "Pituitary TSH-secreting adenoma", "D": "Toxic Adenoma", "E": "Toxic Multinodular Goiter"}, "correctAnswer": "A", "rationale": "The patient has thyrotoxicosis without hyperthyroidism (i.e., her thyroid gland itself is not overproducing hormone). She is taking exogenous thyroid hormone (factitious thyrotoxicosis). This completely suppresses TSH and results in a decreased or absent uptake on a radioactive iodine scan, as the thyroid gland is physiologically shut down.", "source": "Thyroid Disorders PDF, slides 8 & 12: 'Thyrotoxicosis Without Hyperthyroidism... Exogenous Thyroid Hormone | Factitious' AND 'Decreased radioactive iodine uptake with thyroiditis and factitious thyrotoxicosis'"}, {"section": "Thyroid Disorders", "fullLO": "LO3: Recognize the different causes of hypothyroidism", "question": "A 55-year-old woman complains of tiredness, constipation, and hoarseness. Physical examination reveals a delayed relaxation phase of her deep tendon reflexes and a goiter. Laboratory tests show an elevated TSH and low free T4. She has a strong family history of autoimmune diseases. Which of the following is the most common primary cause of this patient's condition?", "options": {"A": "Drug-induced suppression", "B": "Hashimoto's disease", "C": "Hypothalamic infiltration", "D": "Pituitary adenoma", "E": "Thyroid dysgenesis"}, "correctAnswer": "B", "rationale": "The patient has primary hypothyroidism (indicated by high TSH and low T4) with classical symptoms (tiredness, constipation, delayed DTRs). Hashimoto's disease (autoimmune thyroiditis) is a leading cause of primary hypothyroidism.", "source": "Thyroid Disorders PDF, slide 19: 'Hypothyroidism | Causes • Primary... Hashimoto’s'"}, {"section": "Thyroid Disorders", "fullLO": "LO3: Recognize the different causes of hypothyroidism", "question": "A 40-year-old man presents with extreme fatigue, weight gain, and cold intolerance. Laboratory results demonstrate a markedly low T4 level and a low TSH level. An MRI reveals a large macroadenoma compressing the normal pituitary tissue. In the classification of hypothyroidism causes, this specific etiology is defined as:", "options": {"A": "Factitious", "B": "Primary", "C": "Quaternary", "D": "Secondary", "E": "Tertiary"}, "correctAnswer": "D", "rationale": "Hypothyroidism caused by pituitary failure (e.g., due to a pituitary tumor or surgery) is classified as secondary hypothyroidism. The key lab finding differentiating it from primary hypothyroidism is a low (or inappropriately normal) TSH in the face of a low T4.", "source": "Thyroid Disorders PDF, slide 20: 'Hypothyroidism | Causes • Secondary | Pituitary Tumors | Pituitary Surgery'"}, {"section": "Thyroid Disorders", "fullLO": "LO4: Recognize the pathway for evaluation of thyroid nodules", "question": "A 50-year-old woman is discovered to have a 1.5-cm palpable nodule in the right lobe of her thyroid during a routine physical exam. Following the standard diagnostic pathway for evaluating thyroid nodules, the physician orders an initial biochemical test. If the results show that her serum TSH is abnormally low, what is the most appropriate next step in evaluation?", "options": {"A": "Excisional biopsy of the nodule", "B": "Fine needle aspiration (FNA)", "C": "Observation and repeat TSH in 6 months", "D": "Radioiodine Scan", "E": "Total thyroidectomy"}, "correctAnswer": "D", "rationale": "In the evaluation pathway for thyroid nodules, the first step is checking the serum TSH. If the TSH is low (suggesting the nodule may be autonomously functioning/hyperthyroid), the correct next step is a Radioiodine Scan to determine if the nodule is \"hot\" (functioning) or \"cold\" (non-functioning).", "source": "Thyroid Disorders PDF, slide 28: 'Thyroid Nodules | Serum TSH -> Low -> Radioiodine Scan -> Hot Nodule / Cold Nodule'"}, {"section": "Thyroid Disorders", "fullLO": "LO4: Recognize the pathway for evaluation of thyroid nodules", "question": "A 45-year-old man presents with a newly discovered thyroid nodule. Laboratory evaluation reveals that his serum TSH is strictly within the normal range. Based on the established algorithm for thyroid nodule evaluation, which of the following is the most appropriate next step to assess the malignancy risk of this nodule?", "options": {"A": "Empiric radioactive iodine ablation", "B": "Fine Needle Aspiration", "C": "Radioiodine Scan", "D": "Routine monitoring with yearly physical exams", "E": "Trial of exogenous thyroid hormone suppression"}, "correctAnswer": "B", "rationale": "When a thyroid nodule is found and the serum TSH is either Normal or Elevated, the concern is a non-functioning nodule with malignant potential. The direct next step in the algorithm is a Fine Needle Aspiration (FNA) to obtain tissue for cytology.", "source": "Thyroid Disorders PDF, slide 28: 'Thyroid Nodules | Serum TSH -> Normal or Elevated -> Fine Needle Aspiration'"}];
+
+/* Quiz-local storage keys (namespaced so they don't clash with the
+   shared bb_ keys). Shared theme/bg keys are read below so the look
+   carries over from the directory. */
+const K = {
+    mode:      'q_' + QUIZ_ID + '_mode',
+    showLO:    'q_' + QUIZ_ID + '_showLO',
+    answers:   'q_' + QUIZ_ID + '_answers',
+    flags:     'q_' + QUIZ_ID + '_flags',
+    submitted: 'q_' + QUIZ_ID + '_submitted',
+    strikes:   'q_' + QUIZ_ID + '_strikes',
+    hl:        'q_' + QUIZ_ID + '_hl',
+    gradeTrack:'q_' + QUIZ_ID + '_gradeTrack',   // tutor live score tracker on/off
+    snapshot:  'q_' + QUIZ_ID + '_snapshot',     // last exam grade (keeps the report visible)
+    retrySet:  'q_' + QUIZ_ID + '_retrySet'      // indices being retried (for the retry-results element)
+};
+
+const root = document.documentElement;
+let mode = localStorage.getItem(K.mode) || 'tutor';      // 'tutor' | 'exam'
+let answers = load(K.answers, {});     // { qIndex: 'A' }
+let flags = load(K.flags, {});         // { qIndex: true }
+let submitted = load(K.submitted, {}); // tutor: { qIndex: true }; exam: {all:true} once graded
+let graded = !!submitted.all;          // exam mode graded state
+let strikes = load(K.strikes, {});     // { qIndex: { 'A': true } }  eliminated options
+let highlights = load(K.hl, {});       // { qIndex: "<stem html with <mark>>" }
+let gradeTrack = localStorage.getItem(K.gradeTrack) === 'true';  // tutor live score tracker (default OFF)
+let gradedSnapshot = load(K.snapshot, null);   // last exam score; keeps the results card visible until reset
+let retrySet = load(K.retrySet, []);           // question indices from the active "Retry incorrect" pass
+
+function load(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (e) { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+
+/* Ordered unique sections + a short label for each */
+const sections = [];
+quizData.forEach(q => { if (!sections.includes(q.section)) sections.push(q.section); });
+function shortLabel(name) {
+    const map = {
+        'Physiology of the Endocrine System: Adrenal, Thyroid and Parathyroid': 'Endocrine Physiology',
+        'Pathology of the Pituitary & Hypothalamus': 'Pituitary & Hypothalamus',
+        'Thyroid Disorders': 'Thyroid Disorders'
+    };
+    return map[name] || name;
+}
+
+/* ============================================================
+   RENDER — question cards grouped by section
+============================================================ */
+function renderQuiz() {
+    const rootEl = document.getElementById('quiz-root');
+    rootEl.innerHTML = '';
+    let lastSection = null;
+    let secNum = 0;
+
+    quizData.forEach((item, index) => {
+        if (item.section !== lastSection) {
+            secNum++;
+            lastSection = item.section;
+            const div = document.createElement('div');
+            div.className = 'section-divider';
+            div.innerHTML = `<span class="sd-chip">Section ${secNum}</span><span class="sd-name">${escapeHtml(shortLabel(item.section))}</span><span class="sd-rule"></span>`;
+            rootEl.appendChild(div);
+        }
+
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = 'q-card-' + index;
+        if (flags[index]) card.classList.add('flagged');
+
+        // top row: index + flag
+        const top = document.createElement('div');
+        top.className = 'q-top';
+        top.innerHTML = `<span class="q-index">Q${index + 1}</span><span class="q-spacer"></span>`;
+        const flagBtn = document.createElement('button');
+        flagBtn.className = 'flag-btn';
+        flagBtn.innerHTML = `⚑ <span class="flag-txt">${flags[index] ? 'Flagged' : 'Flag'}</span>`;
+        flagBtn.onclick = () => toggleFlag(index);
+        top.appendChild(flagBtn);
+        card.appendChild(top);
+
+        // LO box
+        const lo = document.createElement('div');
+        lo.className = 'lo-box';
+        lo.innerHTML = `<span class="lo-tag">Learning Objective</span>${escapeHtml(item.fullLO)}`;
+        card.appendChild(lo);
+
+        // question text (restore any saved highlights)
+        const qt = document.createElement('div');
+        qt.className = 'question-text';
+        qt.dataset.qi = index;
+        qt.innerHTML = highlights[index] || `${escapeHtml(item.question)}`;
+        card.appendChild(qt);
+
+        // options
+        const grid = document.createElement('div');
+        grid.className = 'options-grid';
+        for (const [key, value] of Object.entries(item.options)) {
+            const label = document.createElement('label');
+            label.className = 'option-label';
+            label.dataset.key = key;
+            if (answers[index] === key) label.classList.add('selected');
+            if (strikes[index] && strikes[index][key]) label.classList.add('eliminated');
+            label.innerHTML = `<span class="opt-key">${key}</span><span class="opt-text">${escapeHtml(value)}</span>`;
+            label.onclick = () => selectOption(index, key);
+            // right-click / long-press to eliminate (strike through)
+            label.addEventListener('contextmenu', ev => { ev.preventDefault(); toggleStrike(index, key); });
+            attachLongPress(label, () => toggleStrike(index, key));
+            grid.appendChild(label);
+        }
+        card.appendChild(grid);
+
+        // tutor submit button
+        const submitBtn = document.createElement('button');
+        submitBtn.className = 'q-submit';
+        submitBtn.id = 'submit-' + index;
+        submitBtn.textContent = 'Submit answer';
+        submitBtn.onclick = () => submitOne(index);
+        card.appendChild(submitBtn);
+
+        // feedback
+        const fb = document.createElement('div');
+        fb.className = 'feedback';
+        fb.id = 'feedback-' + index;
+        card.appendChild(fb);
+
+        rootEl.appendChild(card);
+    });
+
+    buildNavigator();
+    applyModeUI();
+    // restore any already-revealed feedback (tutor) or graded review (exam)
+    quizData.forEach((_, i) => { if (isRevealed(i)) revealAnswer(i); });
+    updateProgress();
+}
+
+
+/* ===== ANIMATED BACKGROUND ENGINE (shared w/ directory, throttled) ===== */
+/* ============================================================
+   ANIMATED BACKGROUND ENGINE — multiple styles
+   window.bgFx.start() / .stop() / .setStyle(name)
+   Styles: neural (default), starfield, bubbles, grid, waves
+============================================================ */
+(function () {
+    const canvas = document.getElementById('neural-bg');
+    const ctx = canvas.getContext('2d');
+    let W, H, rafId = null, running = false, style = 'neural';
+    let nodes = [], orbs = [], stars = [], shooting = null, t = 0;
+    const getRGB = () => getComputedStyle(document.documentElement).getPropertyValue('--neural-rgb').trim() || '110,168,254';
+
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        seed();
+    }
+    function seed() {
+        // particles for neural network
+        nodes = Array.from({ length: 60 }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+            r: 1.1 + Math.random() * 1.8, pulse: Math.random() * Math.PI * 2
+        }));
+        // orbs for bubbles
+        orbs = Array.from({ length: 16 }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            r: 30 + Math.random() * 90,
+            vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+            a: 0.04 + Math.random() * 0.06
+        }));
+        // stars for starfield (slow drift + independent twinkle)
+        const density = Math.round((W * H) / 9000);
+        stars = Array.from({ length: Math.min(220, Math.max(90, density)) }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            r: 0.5 + Math.random() * 1.4,
+            tw: Math.random() * Math.PI * 2,         // twinkle phase
+            ts: 0.5 + Math.random() * 1.5,           // twinkle speed
+            drift: 0.04 + Math.random() * 0.12       // downward drift
+        }));
+        shooting = null;
+    }
+
+    function drawNeural() {
+        const rgb = getRGB(), MAX = 150;
+        nodes.forEach(n => {
+            n.x += n.vx * 2; n.y += n.vy * 2; n.pulse += 0.032;
+            if (n.x < -8) n.x = W + 8; if (n.x > W + 8) n.x = -8;
+            if (n.y < -8) n.y = H + 8; if (n.y > H + 8) n.y = -8;
+        });
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+                const d = Math.hypot(dx, dy);
+                if (d < MAX) {
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = `rgba(${rgb},${(0.1 * (1 - d / MAX)).toFixed(3)})`;
+                    ctx.lineWidth = 0.7; ctx.stroke();
+                }
+            }
+        }
+        nodes.forEach(n => {
+            const r = n.r + Math.sin(n.pulse) * 0.4;
+            ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgb},${(0.26 + Math.sin(n.pulse) * 0.1).toFixed(3)})`;
+            ctx.fill();
+        });
+    }
+
+    function drawStarfield() {
+        const rgb = getRGB();
+        stars.forEach(s => {
+            s.tw += 0.06 * s.ts;
+            s.y += s.drift * 2;
+            if (s.y > H + 2) { s.y = -2; s.x = Math.random() * W; }
+            const a = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(s.tw));
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgb},${a.toFixed(3)})`;
+            ctx.fill();
+        });
+        // occasional shooting star
+        if (!shooting && Math.random() < 0.004) {
+            shooting = {
+                x: Math.random() * W * 0.6, y: Math.random() * H * 0.4,
+                vx: 6 + Math.random() * 4, vy: 3 + Math.random() * 2, life: 1
+            };
+        }
+        if (shooting) {
+            shooting.x += shooting.vx; shooting.y += shooting.vy; shooting.life -= 0.012;
+            const tailX = shooting.x - shooting.vx * 6, tailY = shooting.y - shooting.vy * 6;
+            const grad = ctx.createLinearGradient(shooting.x, shooting.y, tailX, tailY);
+            grad.addColorStop(0, `rgba(${rgb},${Math.max(0, shooting.life * 0.9).toFixed(3)})`);
+            grad.addColorStop(1, `rgba(${rgb},0)`);
+            ctx.strokeStyle = grad; ctx.lineWidth = 1.6;
+            ctx.beginPath(); ctx.moveTo(shooting.x, shooting.y); ctx.lineTo(tailX, tailY); ctx.stroke();
+            if (shooting.life <= 0 || shooting.x > W + 40 || shooting.y > H + 40) shooting = null;
+        }
+    }
+
+    function drawBubbles() {
+        const rgb = getRGB();
+        orbs.forEach(o => {
+            o.x += o.vx * 2; o.y += o.vy * 2;
+            if (o.x < -o.r) o.x = W + o.r; if (o.x > W + o.r) o.x = -o.r;
+            if (o.y < -o.r) o.y = H + o.r; if (o.y > H + o.r) o.y = -o.r;
+            const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+            g.addColorStop(0, `rgba(${rgb},${o.a})`);
+            g.addColorStop(1, `rgba(${rgb},0)`);
+            ctx.fillStyle = g;
+            ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2); ctx.fill();
+        });
+    }
+
+    function drawGrid() {
+        const rgb = getRGB(), gap = 46;
+        ctx.lineWidth = 1;
+        for (let x = 0; x <= W; x += gap) {
+            for (let y = 0; y <= H; y += gap) {
+                const a = 0.05 + 0.05 * Math.sin(t * 0.6 + (x + y) * 0.01);
+                ctx.fillStyle = `rgba(${rgb},${Math.max(0, a).toFixed(3)})`;
+                ctx.beginPath(); ctx.arc(x, y, 1.4, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+    }
+
+    function drawWaves() {
+        const rgb = getRGB();
+        for (let k = 0; k < 3; k++) {
+            ctx.beginPath();
+            const amp = 26 + k * 10, yBase = H * (0.4 + k * 0.18), speed = t * (0.4 + k * 0.15);
+            for (let x = 0; x <= W; x += 12) {
+                const y = yBase + Math.sin(x * 0.008 + speed) * amp + Math.sin(x * 0.02 + speed * 1.4) * (amp * 0.4);
+                x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = `rgba(${rgb},${(0.10 - k * 0.025).toFixed(3)})`;
+            ctx.lineWidth = 1.4; ctx.stroke();
+        }
+    }
+
+    /* Throttled render: cap to ~30fps and skip work when the tab is hidden.
+       Visually identical to 60fps for these slow motions, but roughly halves
+       GPU/CPU work so laptop fans don't spin up. Per-frame motion is doubled
+       (see drawNeural/starfield/bubbles and t) to keep the speed the same. */
+    const FRAME_MS = 1000 / 30;
+    let lastFrame = 0;
+    function draw(now) {
+        if (!running) return;
+        rafId = requestAnimationFrame(draw);
+        if (document.hidden) return;
+        if (now - lastFrame < FRAME_MS) return;
+        lastFrame = now;
+        ctx.clearRect(0, 0, W, H);
+        t += 0.032;
+        if (style === 'neural') drawNeural();
+        else if (style === 'starfield') drawStarfield();
+        else if (style === 'bubbles') drawBubbles();
+        else if (style === 'grid') drawGrid();
+        else if (style === 'waves') drawWaves();
+    }
+    function start() {
+        if (running) return;
+        resize();
+        running = true;
+        lastFrame = 0;
+        canvas.style.display = '';
+        rafId = requestAnimationFrame(draw);
+    }
+    function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        ctx && ctx.clearRect(0, 0, W || 0, H || 0);
+        canvas.style.display = 'none';
+    }
+    function setStyle(name) {
+        style = name;
+        seed();
+    }
+    window.addEventListener('resize', () => { if (running) resize(); });
+    document.addEventListener('visibilitychange', () => { if (running && !document.hidden) lastFrame = 0; });
+    window.bgFx = { start, stop, setStyle };
+})();
+
+
+/* ============================================================
+   NAVIGATOR (USMLE-style)
+============================================================ */
+function buildNavigator() {
+    const wrap = document.getElementById('nav-sections');
+    wrap.innerHTML = '';
+    let lastSection = null, secNum = 0;
+    quizData.forEach((item, index) => {
+        if (item.section !== lastSection) {
+            secNum++;
+            lastSection = item.section;
+            const sec = document.createElement('div');
+            sec.className = 'nav-section';
+            sec.innerHTML = `<div class="nav-section-label"><span class="sec-num">${secNum}</span>${escapeHtml(shortLabel(item.section))}</div><div class="nav-grid" id="nav-grid-${secNum}"></div>`;
+            wrap.appendChild(sec);
+        }
+        const cell = document.createElement('button');
+        cell.className = 'nav-cell';
+        cell.id = 'nav-cell-' + index;
+        cell.textContent = index + 1;
+        cell.innerHTML += '<span class="flag-dot"></span>';
+        cell.onclick = () => jumpToQuestion(index);
+        document.getElementById('nav-grid-' + secNum).appendChild(cell);
+        updateNavCell(index);
+    });
+    document.getElementById('total-count').textContent = quizData.length;
+    document.getElementById('meta-q').textContent = quizData.length;
+    document.getElementById('meta-sec').textContent = sections.length;
+}
+
+function updateNavCell(index) {
+    const cell = document.getElementById('nav-cell-' + index);
+    if (!cell) return;
+    cell.classList.toggle('answered', answers[index] != null && !isRevealed(index));
+    cell.classList.toggle('flagged', !!flags[index]);
+    cell.classList.remove('correct', 'incorrect', 'current');
+    if (isRevealed(index) && answers[index] != null) {
+        const correct = answers[index] === quizData[index].correctAnswer;
+        cell.classList.add(correct ? 'correct' : 'incorrect');
+    }
+}
+
+let spyLockUntil = 0;
+function jumpToQuestion(index) {
+    currentQuestion = index;
+    const card = document.getElementById('q-card-' + index);
+    document.querySelectorAll('.nav-cell.current').forEach(c => c.classList.remove('current'));
+    document.getElementById('nav-cell-' + index).classList.add('current');
+    spyLockUntil = Date.now() + 700;   // let the smooth-scroll settle before spy resumes
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.innerWidth <= 820) document.getElementById('sidebar').classList.add('collapsed');
+}
+
+/* Indices of the questions actually on screen. During a "Retry incorrect" pass
+   the other cards are display:none; navigation + the scroll spy must skip them
+   (a hidden card reports top:0 and would otherwise hijack the current index). */
+function visibleQuestions() {
+    const vis = [];
+    quizData.forEach((_, i) => {
+        const c = document.getElementById('q-card-' + i);
+        if (c && c.offsetParent !== null) vis.push(i);
+    });
+    return vis;
+}
+
+/* ============================================================
+   ANSWER SELECTION + FLAGGING
+============================================================ */
+function selectOption(index, key) {
+    // Exam mode locks after grading; tutor mode always allows changing the answer.
+    if (mode === 'exam' && graded) return;
+    answers[index] = key;
+    save(K.answers, answers);
+    const card = document.getElementById('q-card-' + index);
+    card.querySelectorAll('.option-label').forEach(l => l.classList.toggle('selected', l.dataset.key === key));
+    // If this question was already submitted in tutor mode, re-grade instantly.
+    if (mode === 'tutor' && submitted[index]) {
+        revealAnswer(index);
+    }
+    updateNavCell(index);
+    updateProgress();
+    updateTutorTracker();
+}
+
+function toggleFlag(index) {
+    flags[index] = !flags[index];
+    if (!flags[index]) delete flags[index];
+    save(K.flags, flags);
+    const card = document.getElementById('q-card-' + index);
+    card.classList.toggle('flagged', !!flags[index]);
+    const txt = card.querySelector('.flag-txt');
+    if (txt) txt.textContent = flags[index] ? 'Flagged' : 'Flag';
+    updateNavCell(index);
+    updateProgress();
+}
+
+/* ============================================================
+   REVEAL / FEEDBACK
+============================================================ */
+function isRevealed(index) {
+    return mode === 'tutor' ? !!submitted[index] : graded;
+}
+
+function submitOne(index) {
+    if (answers[index] == null) { flashSubmit(index); return; }
+    submitted[index] = true;
+    save(K.submitted, submitted);
+    revealAnswer(index);
+    updateNavCell(index);
+    updateProgress();
+    updateTutorTracker();
+}
+
+function flashSubmit(index) {
+    const btn = document.getElementById('submit-' + index);
+    if (!btn) return;
+    const orig = btn.textContent;
+    btn.textContent = 'Select an answer first';
+    setTimeout(() => { btn.textContent = orig; }, 1400);
+}
+
+function revealAnswer(index) {
+    const data = quizData[index];
+    const card = document.getElementById('q-card-' + index);
+    const chosen = answers[index];
+    const correct = chosen === data.correctAnswer;
+    const lockOptions = (mode === 'exam');  // tutor mode stays re-answerable
+
+    card.querySelectorAll('.option-label').forEach(l => {
+        // clear any previous reveal state first (so re-grading is clean)
+        l.classList.remove('answer-correct', 'answer-wrong', 'locked');
+        const oldMark = l.querySelector('.opt-mark'); if (oldMark) oldMark.remove();
+        if (lockOptions) l.classList.add('locked');
+        l.classList.toggle('selected', l.dataset.key === chosen);
+        const k = l.dataset.key;
+        if (k === data.correctAnswer) { l.classList.add('answer-correct'); l.insertAdjacentHTML('beforeend', '<span class="opt-mark">✓</span>'); }
+        else if (k === chosen) { l.classList.add('answer-wrong'); l.insertAdjacentHTML('beforeend', '<span class="opt-mark">✗</span>'); }
+    });
+
+    const submitBtn = document.getElementById('submit-' + index);
+    if (submitBtn) submitBtn.classList.add('hidden');
+
+    const fb = document.getElementById('feedback-' + index);
+    fb.className = 'feedback show ' + (correct ? 'correct' : 'incorrect');
+    let header = correct ? '✓ Correct' : '✗ Incorrect';
+    let body = '';
+    if (!correct) body += `<div class="fb-line">Correct answer: <strong>${data.correctAnswer}</strong></div>`;
+    body += `<div class="rationale"><strong>Rationale:</strong> ${escapeHtml(data.rationale)}</div>`;
+    body += `<div class="source"><strong>Source:</strong> ${escapeHtml(data.source)}</div>`;
+    fb.innerHTML = `<div class="feedback-header">${header}</div><div class="feedback-body">${body}</div>`;
+}
+
+
+/* ============================================================
+   MODE (tutor / exam)
+============================================================ */
+function syncModeButtons() {
+    document.getElementById('mode-tutor').classList.toggle('active', mode === 'tutor');
+    document.getElementById('mode-exam').classList.toggle('active', mode === 'exam');
+}
+function setMode(newMode) {
+    if (mode === newMode) return;
+    // Prevent switching away from a graded exam without warning
+    mode = newMode;
+    localStorage.setItem(K.mode, mode);
+    syncModeButtons();
+    // re-render reveal state (tutor shows per-submitted; exam shows only if graded)
+    quizData.forEach((_, i) => {
+        const fb = document.getElementById('feedback-' + i);
+        const card = document.getElementById('q-card-' + i);
+        if (isRevealed(i)) { revealAnswer(i); }
+        else {
+            fb.className = 'feedback'; fb.innerHTML = '';
+            card.querySelectorAll('.option-label').forEach(l => { l.classList.remove('locked','answer-correct','answer-wrong'); const m = l.querySelector('.opt-mark'); if (m) m.remove(); });
+        }
+        updateNavCell(i);
+    });
+    applyModeUI();   // sets submit-button + end-block visibility for the new mode
+    applyGradeTrackUI();
+    updateTutorTracker();
+    refreshResults();   // show the exam report only in exam mode
+    updateProgress();
+}
+
+function applyModeUI() {
+    const isTutor = mode === 'tutor';
+    document.getElementById('meta-mode').textContent = isTutor ? 'Tutor' : 'Exam';
+    document.getElementById('mode-hint-text').textContent = isTutor
+        ? 'Tutor mode: submit each question to see the answer and explanation right away.'
+        : 'Exam mode: answer everything, then press Finish to grade. Explanations unlock after grading.';
+    // per-question submit buttons only in tutor mode (and not after reveal)
+    quizData.forEach((_, i) => {
+        const sb = document.getElementById('submit-' + i);
+        if (!sb) return;
+        if (isTutor && !isRevealed(i)) sb.classList.remove('hidden');
+        else sb.classList.add('hidden');
+    });
+    // end-of-quiz submit block only in exam mode, before grading
+    const endBlock = document.getElementById('quiz-end');
+    endBlock.classList.toggle('hidden', isTutor || graded);
+    // legend graded rows
+    document.querySelectorAll('.legend-graded').forEach(el => el.style.display = (mode === 'exam' && !graded) ? 'none' : '');
+}
+
+/* ============================================================
+   FINISH & GRADE (exam mode)  → writes shared bb_scores + bb_completed
+============================================================ */
+function finishQuiz() {
+    const unanswered = quizData.filter((_, i) => answers[i] == null).length;
+    if (unanswered > 0) {
+        const proceed = confirm(`You have ${unanswered} unanswered question${unanswered > 1 ? 's' : ''}. Grade anyway? They'll be marked incorrect.`);
+        if (!proceed) return;
+    }
+    graded = true;
+    submitted = { all: true };
+    save(K.submitted, submitted);
+    quizData.forEach((_, i) => { revealAnswer(i); updateNavCell(i); });
+    applyModeUI();
+    writeScore();
+    showResults();
+    updateProgress();
+}
+
+function computeScore() {
+    let correct = 0;
+    const perSection = {};
+    sections.forEach(s => perSection[s] = { correct: 0, total: 0 });
+    quizData.forEach((q, i) => {
+        perSection[q.section].total++;
+        if (answers[i] === q.correctAnswer) { correct++; perSection[q.section].correct++; }
+    });
+    return { correct, total: quizData.length, perSection };
+}
+
+/* Write to the SHARED keys the B&B directory reads. */
+function writeScore() {
+    const { correct, total } = computeScore();
+    try {
+        const scores = JSON.parse(localStorage.getItem('bb_scores') || '{}');
+        scores[QUIZ_ID] = { correct, total, ts: Date.now() };
+        localStorage.setItem('bb_scores', JSON.stringify(scores));
+        const completed = JSON.parse(localStorage.getItem('bb_completed') || '{}');
+        completed[QUIZ_ID] = true;
+        localStorage.setItem('bb_completed', JSON.stringify(completed));
+    } catch (e) {}
+}
+
+/* Build + show the results card from a saved snapshot (no scroll). */
+function renderResults(snap) {
+    if (!snap) return;
+    const { correct, total, perSection } = snap;
+    const incorrect = total - correct;
+    const pct = total ? Math.round((correct / total) * 100) : 0;
+    const card = document.getElementById('results-card');
+    let secRows = sections.map(s => {
+        const ps = perSection[s];
+        if (!ps) return '';
+        const p = ps.total ? Math.round((ps.correct / ps.total) * 100) : 0;
+        return `<div class="sec-score-row"><span class="sec-score-name">${escapeHtml(shortLabel(s))}</span><span class="sec-score-bar"><span style="width:${p}%"></span></span><span class="sec-score-val">${ps.correct}/${ps.total}</span></div>`;
+    }).join('');
+    // Retry-results element: how the previously-missed questions went this time.
+    let retryBlock = '';
+    if (snap.retry && snap.retry.total) {
+        const r = snap.retry;
+        const rpct = r.total ? Math.round((r.correct / r.total) * 100) : 0;
+        const chips = r.items.map(it =>
+            `<button type="button" class="retry-chip ${it.correct ? 'ok' : 'no'}" onclick="jumpToQuestion(${it.n - 1})" title="Go to question ${it.n}">Q${it.n} ${it.correct ? '✓' : '✗'}</button>`
+        ).join('');
+        retryBlock = `
+        <div class="retry-results">
+            <div class="retry-results-head">
+                <span class="rr-title">↻ Retry results</span>
+                <span class="rr-score"><b>${r.correct} / ${r.total}</b> of your previously-missed questions correct this time · ${rpct}%</span>
+            </div>
+            <div class="retry-chips">${chips}</div>
+        </div>`;
+    }
+    card.innerHTML = `
+        <div class="results-top">
+            <div class="score-ring" style="--pct:${pct}"><div class="score-ring-inner"><div class="sr-pct">${pct}%</div><div class="sr-lbl">Score</div></div></div>
+            <div class="results-headline">
+                <h2>${correct} / ${total} correct</h2>
+                <div class="results-tally">
+                    <span class="tally correct-tally">✓ ${correct} correct</span>
+                    <span class="tally incorrect-tally">✗ ${incorrect} incorrect</span>
+                </div>
+                <p class="results-saved">Score saved to the directory.</p>
+            </div>
+        </div>
+        <div class="section-scores">${secRows}</div>
+        ${retryBlock}
+        <div class="results-actions">
+            <button class="results-btn primary" onclick="reviewAll()">Review explanations</button>
+            <button class="results-btn" onclick="retryIncorrect()">Retry incorrect</button>
+            <button class="results-btn danger-outline" onclick="resetQuiz()">Reset quiz</button>
+            <a class="results-btn" href="https://ibecerramcg.github.io/BnB-Practice-Quizzes/">Back to directory</a>
+        </div>`;
+    card.classList.add('show');
+}
+
+/* Grade the current answers, remember the snapshot, and show the card.
+   The answers are stored on the snapshot too, so "Review explanations" can
+   restore the fully-graded view even after a Retry incorrect wiped them. */
+function showResults() {
+    gradedSnapshot = computeScore();
+    gradedSnapshot.answers = { ...answers };
+    // If this grade followed a "Retry incorrect" pass, score just those questions
+    // separately so the retry performance is clear (not merged into the overall).
+    if (retrySet && retrySet.length) {
+        const items = retrySet.slice().sort((a, b) => a - b)
+            .map(i => ({ n: i + 1, correct: answers[i] === quizData[i].correctAnswer }));
+        gradedSnapshot.retry = { total: items.length, correct: items.filter(x => x.correct).length, items };
+        retrySet = [];            // this retry pass is now consumed
+        save(K.retrySet, retrySet);
+    }
+    save(K.snapshot, gradedSnapshot);
+    renderResults(gradedSnapshot);
+    document.getElementById('results-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Show / hide the results card from the saved snapshot. The snapshot survives
+   reloads and the "Retry incorrect → Show all questions" cycle, so the report
+   only disappears when Reset quiz is used. */
+function refreshResults() {
+    const card = document.getElementById('results-card');
+    if (mode === 'exam' && gradedSnapshot && !retryMode) {
+        renderResults(gradedSnapshot);
+    } else {
+        card.classList.remove('show');
+        card.innerHTML = '';
+    }
+}
+
+/* "Review explanations" — restore the fully graded view (the answers from the
+   saved snapshot) and reveal every question's answer + rationale, then scroll to
+   the first question. Works even after Retry incorrect → Show all questions. */
+function reviewAll() {
+    if (gradedSnapshot && gradedSnapshot.answers) {
+        answers = { ...gradedSnapshot.answers };
+        save(K.answers, answers);
+    }
+    graded = true;
+    submitted = { all: true };
+    save(K.submitted, submitted);
+    retryMode = false;
+    const banner = document.getElementById('retry-banner');
+    if (banner) banner.style.display = 'none';
+    // make sure every card + section divider is visible, then reveal explanations
+    quizData.forEach((_, i) => {
+        const card = document.getElementById('q-card-' + i);
+        if (card) card.style.display = '';
+        revealAnswer(i);
+        updateNavCell(i);
+    });
+    document.querySelectorAll('.section-divider').forEach(d => d.style.display = '');
+    applyModeUI();
+    refreshResults();   // keep the score card visible
+    updateProgress();
+    document.getElementById('q-card-0').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Reset everything for this quiz — usable any time (settings menu, end of
+   quiz, or results). Clears local answers/flags/submissions; the saved
+   directory score is left in place unless it's re-graded. */
+function resetQuiz() {
+    if (!confirm('Reset this quiz? This clears your answers, flags, eliminations and highlights so you can start fresh.')) return;
+    answers = {}; flags = {}; submitted = {}; graded = false; strikes = {}; highlights = {};
+    save(K.answers, answers); save(K.flags, flags); save(K.submitted, submitted);
+    save(K.strikes, strikes); save(K.hl, highlights);
+    gradedSnapshot = null; save(K.snapshot, null);   // clear the saved score report
+    retrySet = []; save(K.retrySet, retrySet);       // clear any pending retry pass
+    const rc = document.getElementById('results-card');
+    rc.classList.remove('show'); rc.innerHTML = '';
+    const banner = document.getElementById('retry-banner'); if (banner) banner.style.display = 'none';
+    retryMode = false;
+    renderQuiz();
+    updateTutorTracker();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* Retry only the questions answered incorrectly. Clears those answers so
+   they can be re-attempted; correct ones are hidden for a focused pass. */
+let retryMode = false;
+function retryIncorrect() {
+    const wrong = quizData.map((q, i) => (answers[i] !== q.correctAnswer ? i : -1)).filter(i => i >= 0);
+    if (wrong.length === 0) { alert('Every question was correct — nothing to retry.'); return; }
+    // remember which questions this retry pass covers, so grading can score them separately
+    retrySet = wrong.slice();
+    save(K.retrySet, retrySet);
+    // reset grading + the wrong answers
+    graded = false; submitted = {}; save(K.submitted, submitted);
+    wrong.forEach(i => { delete answers[i]; });
+    save(K.answers, answers);
+    const rc = document.getElementById('results-card');
+    rc.classList.remove('show'); rc.innerHTML = '';
+    retryMode = true;
+    renderQuiz();
+    // show only the incorrect questions
+    const wrongSet = new Set(wrong);
+    quizData.forEach((_, i) => {
+        const card = document.getElementById('q-card-' + i);
+        if (card) card.style.display = wrongSet.has(i) ? '' : 'none';
+    });
+    // hide section dividers with no visible cards
+    document.querySelectorAll('.section-divider').forEach(d => {
+        let n = d.nextElementSibling, anyVisible = false;
+        while (n && !n.classList.contains('section-divider')) { if (n.classList.contains('question-card') && n.style.display !== 'none') anyVisible = true; n = n.nextElementSibling; }
+        d.style.display = anyVisible ? '' : 'none';
+    });
+    // banner + scroll to first
+    showRetryBanner(wrong.length);
+    const first = document.getElementById('q-card-' + wrong[0]);
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showRetryBanner(n) {
+    let banner = document.getElementById('retry-banner');
+    if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'retry-banner';
+        banner.className = 'retry-banner';
+        const root = document.getElementById('quiz-root');
+        root.parentNode.insertBefore(banner, root);
+    }
+    banner.innerHTML = `<span>🔁 Retrying <b>${n}</b> missed question${n > 1 ? 's' : ''}. Correct ones are hidden.</span><button class="results-btn" onclick="exitRetry()">Show all questions</button>`;
+    banner.style.display = 'flex';
+}
+function exitRetry() {
+    retryMode = false;
+    const banner = document.getElementById('retry-banner');
+    if (banner) banner.style.display = 'none';
+    quizData.forEach((_, i) => { const c = document.getElementById('q-card-' + i); if (c) c.style.display = ''; });
+    document.querySelectorAll('.section-divider').forEach(d => d.style.display = '');
+    refreshResults();   // bring the score report back — it persists until Reset quiz
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleLOs() {
+    const on = !document.body.classList.contains('show-lo');
+    document.body.classList.toggle('show-lo', on);
+    const t = document.getElementById('lo-btn');
+    t.classList.toggle('on', on); t.setAttribute('aria-pressed', on ? 'true' : 'false');
+    localStorage.setItem(K.showLO, on ? 'true' : 'false');
+}
+
+function updateProgress() {
+    const answered = quizData.filter((_, i) => answers[i] != null).length;
+    const flagged = Object.keys(flags).length;
+    document.getElementById('answered-count').textContent = answered;
+    document.getElementById('flag-count').textContent = flagged;
+    document.getElementById('progress-fill').style.width = (answered / quizData.length * 100) + '%';
+}
+
+/* ============================================================
+   TUTOR LIVE SCORE TRACKER  (functional header control)
+   Off by default. When ON in tutor mode, a running score sits at the top of
+   the page and updates as each question is submitted. Per-question feedback
+   (correct/incorrect + rationale) is unchanged — this only adds the tally.
+   Hidden in exam mode (the results card serves that role there).
+============================================================ */
+function toggleGradeTrack() {
+    gradeTrack = !gradeTrack;
+    localStorage.setItem(K.gradeTrack, gradeTrack ? 'true' : 'false');
+    applyGradeTrackUI();
+    updateTutorTracker();
+}
+
+/* Header button state + "View score" jump button visibility. */
+function applyGradeTrackUI() {
+    const on = gradeTrack && mode === 'tutor';
+    const btn = document.getElementById('grade-btn');
+    if (btn) {
+        btn.style.display = (mode === 'tutor') ? '' : 'none';
+        btn.classList.toggle('on', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    const vb = document.getElementById('view-score-btn');
+    if (vb) vb.style.display = on ? '' : 'none';
+}
+
+/* Recompute the running tutor score from the submitted questions. */
+function updateTutorTracker() {
+    const el = document.getElementById('tutor-tracker');
+    if (!el) return;
+    const show = gradeTrack && mode === 'tutor';
+    el.classList.toggle('show', show);
+    if (!show) { el.innerHTML = ''; return; }
+    let gradedN = 0, correct = 0;
+    quizData.forEach((q, i) => { if (submitted[i]) { gradedN++; if (answers[i] === q.correctAnswer) correct++; } });
+    const incorrect = gradedN - correct;
+    const remaining = quizData.length - gradedN;
+    const pct = gradedN ? Math.round((correct / gradedN) * 100) : 0;
+    const barPct = Math.round((gradedN / quizData.length) * 100);
+    el.innerHTML = `
+        <div class="tt-card">
+            <span class="tt-label">Live score</span>
+            <span class="tt-main">${correct} / ${gradedN} <span class="tt-pct">· ${pct}%</span></span>
+            <div class="tt-tallies">
+                <span class="tt-correct">✓ ${correct}</span>
+                <span class="tt-incorrect">✗ ${incorrect}</span>
+                <span class="tt-remaining">${remaining} left</span>
+            </div>
+            <div class="tt-track"><div class="tt-fill" style="width:${barPct}%"></div></div>
+        </div>`;
+}
+
+function jumpToTracker() {
+    const el = document.getElementById('tutor-tracker');
+    if (el && el.classList.contains('show')) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+
+/* ============================================================
+   THEME SYSTEM  (reads/writes the SHARED bb_ keys so the theme
+   and background carry over to and from the directory)
+============================================================ */
+const themeSelect = document.getElementById('theme-select');
+const customBuilder = document.getElementById('custom-builder');
+
+function changeTheme(name) {
+    localStorage.setItem('bb_quizTheme', name);
+    // keep both desktop + mobile selects in sync
+    if (themeSelect.value !== name) themeSelect.value = name;
+    const tm = document.getElementById('theme-select-m');
+    if (tm && tm.value !== name) tm.value = name;
+    if (name === 'custom') {
+        root.removeAttribute('data-theme');
+        customBuilder.classList.add('active');
+        loadCustomTheme();
+    } else {
+        root.setAttribute('data-theme', name);
+        customBuilder.classList.remove('active');
+        root.removeAttribute('style');
+    }
+}
+themeSelect.addEventListener('change', e => changeTheme(e.target.value));
+{ const tm = document.getElementById('theme-select-m'); if (tm) tm.addEventListener('change', e => changeTheme(e.target.value)); }
+
+function updateCustomTheme() {
+    const bg = document.getElementById('color-bg').value;
+    const card = document.getElementById('color-card').value;
+    const text = document.getElementById('color-text').value;
+    const accent = document.getElementById('color-accent').value;
+    root.style.setProperty('--bg-body', bg);
+    root.style.setProperty('--bg-header', bg + 'e6');
+    root.style.setProperty('--bg-sidebar', bg + 'cc');
+    root.style.setProperty('--bg-card', card);
+    root.style.setProperty('--bg-card-hover', card);
+    root.style.setProperty('--bg-input', card);
+    root.style.setProperty('--bg-active', accent + '28');
+    root.style.setProperty('--bg-hover', accent + '14');
+    root.style.setProperty('--text-main', text);
+    root.style.setProperty('--topic-color', text);
+    root.style.setProperty('--text-muted', text + '99');
+    root.style.setProperty('--text-accent', accent);
+    root.style.setProperty('--text-accent-2', accent);
+    root.style.setProperty('--border-color', accent + '4d');
+    root.style.setProperty('--border-subtle', text + '1a');
+    root.style.setProperty('--button-bg', accent);
+    root.style.setProperty('--button-text', '#ffffff');
+    root.style.setProperty('--select-bg', card);
+    root.style.setProperty('--select-text', text);
+    root.style.setProperty('--solid-accent', accent);
+    root.style.setProperty('--card-glow', accent + '40');
+    root.style.setProperty('--hero-glow-1', accent + '33');
+    root.style.setProperty('--hero-glow-2', accent + '1f');
+    root.style.setProperty('--neural-rgb', hexToRgb(accent));
+    localStorage.setItem('bb_customColors', JSON.stringify({ bg, card, text, accent }));
+}
+function loadCustomTheme() {
+    const saved = JSON.parse(localStorage.getItem('bb_customColors') || 'null');
+    if (saved) {
+        document.getElementById('color-bg').value = saved.bg;
+        document.getElementById('color-card').value = saved.card;
+        document.getElementById('color-text').value = saved.text;
+        document.getElementById('color-accent').value = saved.accent;
+    }
+    updateCustomTheme();
+}
+function hexToRgb(hex) { const h = hex.replace('#',''); return `${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)}`; }
+
+/* ============================================================
+   SETTINGS PANEL + BACKGROUND + ACCENTS  (shared bb_ keys)
+============================================================ */
+function toggleSettings() {
+    const panel = document.getElementById('settings-panel');
+    const open = panel.classList.toggle('open');
+    document.getElementById('settings-btn').classList.toggle('open', open);
+    if (open) customBuilder.classList.remove('active');
+}
+function toggleBackground() {
+    const on = !document.getElementById('bg-toggle').classList.contains('on');
+    localStorage.setItem('bb_bgEnabled', on ? 'true' : 'false');
+    applyBackground(on);
+}
+function applyBackground(on) {
+    if (on) { window.bgFx && window.bgFx.start(); } else { window.bgFx && window.bgFx.stop(); }
+    const t = document.getElementById('bg-toggle');
+    t.classList.toggle('on', on); t.setAttribute('aria-checked', on ? 'true' : 'false');
+    const row = document.getElementById('bg-style-row');
+    if (row) row.style.display = on ? 'flex' : 'none';
+}
+function setBgStyle(name) { localStorage.setItem('bb_bgStyle', name); window.bgFx && window.bgFx.setStyle(name); }
+function toggleAccents() {
+    const on = !document.getElementById('accent-toggle').classList.contains('on');
+    localStorage.setItem('bb_accentsEnabled', on ? 'true' : 'false');
+    applyAccents(on);
+}
+function applyAccents(on) {
+    document.body.classList.toggle('no-accents', !on);
+    const t = document.getElementById('accent-toggle');
+    t.classList.toggle('on', on); t.setAttribute('aria-checked', on ? 'true' : 'false');
+}
+
+/* Close popovers on outside click */
+document.addEventListener('click', e => {
+    const sp = document.getElementById('settings-panel'), sb = document.getElementById('settings-btn');
+    if (sp.classList.contains('open') && !sp.contains(e.target) && !sb.contains(e.target)) { sp.classList.remove('open'); sb.classList.remove('open'); }
+    if (customBuilder.classList.contains('active') && !customBuilder.contains(e.target) && !themeSelect.contains(e.target) && themeSelect.value !== 'custom') customBuilder.classList.remove('active');
+});
+
+/* ============================================================
+   HEADER PIN + SCROLL SPY + BACK TO TOP
+============================================================ */
+function toggleHeader(forceState) {
+    const header = document.getElementById('main-header');
+    const pinned = typeof forceState === 'boolean' ? forceState : header.classList.contains('unpinned');
+    header.classList.toggle('unpinned', !pinned);
+    document.documentElement.style.setProperty('--header-height', pinned ? 'var(--header-h)' : '0px');
+    const t = document.getElementById('pin-toggle');
+    if (t) { t.classList.toggle('on', pinned); t.setAttribute('aria-checked', pinned ? 'true' : 'false'); }
+    localStorage.setItem('bb_headerPinned', pinned ? 'true' : 'false');
+}
+
+let ticking = false;
+let currentQuestion = 0;
+window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+        const y = window.scrollY;
+        document.getElementById('main-header').classList.toggle('scrolled', y > 8);
+        // scroll spy: mark current question in navigator (paused briefly after a jump)
+        if (Date.now() < spyLockUntil) { ticking = false; return; }
+        const vis = visibleQuestions();
+        let current = null;
+        vis.forEach(i => {
+            const card = document.getElementById('q-card-' + i);
+            if (card && card.getBoundingClientRect().top < window.innerHeight * 0.4) current = i;
+        });
+        if (current === null) current = vis.length ? vis[0] : 0;
+        currentQuestion = current;
+        document.querySelectorAll('.nav-cell.current').forEach(c => c.classList.remove('current'));
+        const cell = document.getElementById('nav-cell-' + current);
+        if (cell) cell.classList.add('current');
+        ticking = false;
+    });
+});
+
+/* ============================================================
+   KEYBOARD CONTROLS
+   A–E answer · Enter submit (tutor) · F flag · J/K or ↑/↓ move
+   H toggle highlighter · Esc close menus
+============================================================ */
+document.addEventListener('keydown', e => {
+    // ignore when typing in inputs/selects or with modifier keys
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'select' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+
+    const key = e.key.toLowerCase();
+    const vis = visibleQuestions();
+
+    // Keep the "current" question on something that's actually visible. During a
+    // retry pass the current index can be stale/hidden — snap it to the nearest
+    // visible question so answering + navigation act on what's on screen.
+    let i = currentQuestion;
+    if (vis.length && vis.indexOf(i) === -1) {
+        const after = vis.find(v => v >= i);
+        i = (after != null) ? after : vis[vis.length - 1];
+        currentQuestion = i;
+    }
+
+    if (['a','b','c','d','e'].includes(key)) {
+        const opt = document.querySelector(`#q-card-${i} .option-label[data-key="${key.toUpperCase()}"]`);
+        if (opt) { selectOption(i, key.toUpperCase()); e.preventDefault(); }
+    } else if (e.key === 'Enter') {
+        if (mode === 'tutor' && !submitted[i] && answers[i] != null) { submitOne(i); e.preventDefault(); }
+    } else if (key === 'f') {
+        toggleFlag(i); e.preventDefault();
+    } else if (key === 'j' || e.key === 'ArrowDown') {
+        const next = vis.find(v => v > i);
+        if (next != null) jumpToQuestion(next);
+        e.preventDefault();
+    } else if (key === 'k' || e.key === 'ArrowUp') {
+        const before = vis.filter(v => v < i);
+        if (before.length) jumpToQuestion(before[before.length - 1]);
+        e.preventDefault();
+    } else if (key === 'h') {
+        toggleHighlighter(); e.preventDefault();
+    } else if (e.key === 'Escape') {
+        document.getElementById('settings-panel').classList.remove('open');
+        document.getElementById('settings-btn').classList.remove('open');
+        customBuilder.classList.remove('active');
+    }
+});
+
+document.getElementById('sidebar-toggle').addEventListener('click', () => {
+    document.getElementById('sidebar').classList.toggle('collapsed');
+});
+
+function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+/* ============================================================
+   STRIKETHROUGH (eliminate an option)
+============================================================ */
+function toggleStrike(index, key) {
+    if (mode === 'exam' && graded) return;   // don't fiddle after grading
+    if (!strikes[index]) strikes[index] = {};
+    if (strikes[index][key]) delete strikes[index][key]; else strikes[index][key] = true;
+    if (Object.keys(strikes[index]).length === 0) delete strikes[index];
+    save(K.strikes, strikes);
+    const label = document.querySelector(`#q-card-${index} .option-label[data-key="${key}"]`);
+    if (label) label.classList.toggle('eliminated', !!(strikes[index] && strikes[index][key]));
+}
+
+/* Long-press (mobile) helper for strikethrough */
+function attachLongPress(el, cb) {
+    let timer = null;
+    const start = () => { timer = setTimeout(() => { timer = null; cb(); }, 500); };
+    const cancel = () => { if (timer) { clearTimeout(timer); timer = null; } };
+    el.addEventListener('touchstart', start, { passive: true });
+    el.addEventListener('touchend', cancel);
+    el.addEventListener('touchmove', cancel);
+}
+
+/* ============================================================
+   HIGHLIGHTER
+   In highlight mode, selecting text inside a question stem or option
+   wraps it in <mark class="hl">. Clicking an existing highlight removes it.
+============================================================ */
+function toggleHighlighter() {
+    const on = !document.body.classList.contains('hl-mode');
+    document.body.classList.toggle('hl-mode', on);
+    document.getElementById('hl-btn').classList.toggle('on', on);
+}
+
+function persistHighlight(container) {
+    const qi = container.dataset.qi;
+    if (qi == null) return;
+    highlights[qi] = container.innerHTML;
+    save(K.hl, highlights);
+}
+
+/* Remove a highlight when clicked (works regardless of mode) */
+document.addEventListener('click', e => {
+    const mark = e.target.closest && e.target.closest('mark.hl');
+    if (!mark) return;
+    const host = mark.closest('.question-text');
+    const parent = mark.parentNode;
+    while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+    parent.removeChild(mark);
+    parent.normalize();
+    if (host) persistHighlight(host);
+});
+
+/* Create a highlight from the current selection on mouseup (hl-mode only) */
+document.addEventListener('mouseup', () => {
+    if (!document.body.classList.contains('hl-mode')) return;
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+    const range = sel.getRangeAt(0);
+    const host = range.commonAncestorContainer.parentElement && range.commonAncestorContainer.parentElement.closest('.question-text');
+    if (!host) return;                       // only highlight within the question stem
+    if (range.toString().trim().length === 0) return;
+    try {
+        const mark = document.createElement('mark');
+        mark.className = 'hl';
+        mark.appendChild(range.extractContents());
+        range.insertNode(mark);
+        host.normalize();
+        persistHighlight(host);
+        sel.removeAllRanges();
+    } catch (err) { /* complex selection spanning nodes — ignore */ }
+});
+
+/* ============================================================
+   INIT
+============================================================ */
+(function init() {
+    // shared theme
+    const savedTheme = localStorage.getItem('bb_quizTheme') || 'slate';
+    themeSelect.value = savedTheme;
+    const themeSelectM = document.getElementById('theme-select-m');
+    if (themeSelectM) themeSelectM.value = savedTheme;
+    changeTheme(savedTheme);
+    // shared header pin
+    toggleHeader(localStorage.getItem('bb_headerPinned') !== 'false');
+    // shared background + accents
+    const savedStyle = localStorage.getItem('bb_bgStyle') || 'neural';
+    const styleSel = document.getElementById('bg-style-select');
+    if (styleSel) styleSel.value = savedStyle;
+    window.bgFx && window.bgFx.setStyle(savedStyle);
+    applyBackground(localStorage.getItem('bb_bgEnabled') !== 'false');
+    applyAccents(localStorage.getItem('bb_accentsEnabled') !== 'false');
+    // LO visibility (quiz-local; default OFF)
+    const loOn = localStorage.getItem(K.showLO) === 'true';
+    document.body.classList.toggle('show-lo', loOn);
+    const loBtn = document.getElementById('lo-btn');
+    loBtn.classList.toggle('on', loOn); loBtn.setAttribute('aria-pressed', loOn ? 'true' : 'false');
+    // mode (sync both desktop + mobile switches)
+    syncModeButtons();
+    // render
+    renderQuiz();
+    // tutor live score tracker + persistent exam report
+    applyGradeTrackUI();
+    updateTutorTracker();
+    refreshResults();
+})();
+</script>
+</body>
+</html>
