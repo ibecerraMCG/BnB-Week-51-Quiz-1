@@ -668,6 +668,65 @@
     .retry-chip.ok { color: var(--correct, #34d399); border-color: var(--correct, #34d399); background: var(--correct-bg, rgba(52,211,153,0.14)); }
     .retry-chip.no { color: var(--incorrect, #f87171); border-color: var(--incorrect, #f87171); background: var(--incorrect-bg, rgba(248,113,113,0.12)); }
 
+    /* Help button (hero) + controls guide modal */
+    .help-btn {
+        display: inline-flex; align-items: center; gap: 8px; margin-top: 1.1rem;
+        padding: 8px 15px; border-radius: 10px; cursor: pointer;
+        background: var(--bg-active); color: var(--text-accent);
+        border: 1px solid var(--border-color); font-family: var(--font-main);
+        font-size: 0.82rem; font-weight: 600;
+        transition: background 0.18s, border-color 0.18s, transform 0.15s;
+    }
+    .help-btn:hover { background: var(--bg-hover); border-color: var(--text-accent); transform: translateY(-1px); }
+    .help-btn svg { display: block; }
+
+    #help-overlay {
+        display: none; position: fixed; inset: 0; z-index: 500;
+        background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+        padding: clamp(1rem, 4vh, 3rem) 1rem; overflow-y: auto;
+    }
+    #help-overlay.open { display: flex; align-items: flex-start; justify-content: center; animation: fb-in 0.2s ease; }
+    .help-card {
+        width: 100%; max-width: 620px; margin: auto; background: var(--bg-card);
+        border: 1px solid var(--border-color); border-radius: var(--radius);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.5); overflow: hidden;
+    }
+    .help-head {
+        display: flex; align-items: center; gap: 12px; padding: 1.05rem 1.3rem;
+        border-bottom: 1px solid var(--border-subtle);
+        background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 12%, transparent), transparent);
+    }
+    .help-head svg { color: var(--text-accent); flex-shrink: 0; }
+    .help-head h2 { font-size: 1.12rem; font-weight: 800; flex: 1; }
+    .help-close {
+        flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; cursor: pointer;
+        background: none; border: 1px solid var(--border-color); color: var(--text-main);
+        font-size: 1rem; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
+        transition: background 0.18s, border-color 0.18s, color 0.18s;
+    }
+    .help-close:hover { background: var(--bg-hover); border-color: var(--text-accent); color: var(--text-accent); }
+    .help-body { padding: 1.2rem 1.3rem 1.4rem; }
+    .help-section + .help-section { margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid var(--border-subtle); }
+    .help-section h3 {
+        font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--text-accent); margin-bottom: 0.8rem;
+    }
+    .key-row { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0; font-size: 0.9rem; }
+    .key-row + .key-row { border-top: 1px solid var(--border-subtle); }
+    .key-keys { flex-shrink: 0; display: inline-flex; gap: 5px; flex-wrap: wrap; align-items: center; min-width: 120px; }
+    .key-desc { color: var(--text-main); padding-top: 3px; }
+    .help-body kbd {
+        font-family: var(--font-mono); font-size: 0.76rem; font-weight: 700;
+        min-width: 24px; text-align: center; padding: 3px 7px; border-radius: 6px;
+        background: var(--bg-input); color: var(--text-main);
+        border: 1px solid var(--border-color); border-bottom-width: 2px;
+        display: inline-block; line-height: 1.2;
+    }
+    .help-body .key-sep { color: var(--text-muted); font-size: 0.8rem; }
+    .help-tip { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); }
+    .help-tip b { color: var(--text-accent); }
+    .help-tip + .help-tip { margin-top: 0.6rem; }
+
     .quiz-return { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 2.5rem; }
     .btn-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.88rem; color: var(--text-accent); border: 1px solid var(--border-color); background: none; font-family: var(--font-main); cursor: pointer; transition: all 0.2s; }
     .btn-link:hover { background: var(--bg-active); border-color: var(--text-accent); }
@@ -859,6 +918,10 @@
         <div class="quiz-hero">
             <div class="quiz-eyebrow">Brain &amp; Behavior · Week 51 · B&amp;B Week 1</div>
             <h1 class="quiz-title">Part 1 — Practice Quiz</h1>
+            <button id="help-btn" class="help-btn" onclick="openHelp()" aria-haspopup="dialog" title="How to use this quiz + keyboard shortcuts">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+                Keyboard &amp; controls
+            </button>
             <div class="quiz-meta">
                 <div class="qm"><span class="n" id="meta-q">0</span><span class="l">Questions</span></div>
                 <div class="qm"><span class="n" id="meta-sec">0</span><span class="l">Sections</span></div>
@@ -885,6 +948,43 @@
 </div>
 
 <footer id="site-footer">Created by Ian Becerra · <a href="mailto:ibecerra@augusta.edu">ibecerra@augusta.edu</a> · Medical College of Georgia, Class of 2029</footer>
+</div>
+
+<!-- ============ CONTROLS / KEYBOARD GUIDE MODAL ============ -->
+<div id="help-overlay" role="dialog" aria-modal="true" aria-labelledby="help-title" onclick="if(event.target===this)closeHelp()">
+    <div class="help-card">
+        <div class="help-head">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            <h2 id="help-title">How to use this quiz</h2>
+            <button class="help-close" onclick="closeHelp()" aria-label="Close guide">✕</button>
+        </div>
+        <div class="help-body">
+            <div class="help-section">
+                <h3>Keyboard shortcuts</h3>
+                <div class="key-row"><span class="key-keys"><kbd>A</kbd><span class="key-sep">–</span><kbd>E</kbd></span><span class="key-desc">Select an answer choice</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>Enter</kbd></span><span class="key-desc">Submit the current question (Tutor mode)</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>F</kbd></span><span class="key-desc">Flag / unflag the current question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>J</kbd><span class="key-sep">or</span><kbd>↓</kbd></span><span class="key-desc">Go to the next question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>K</kbd><span class="key-sep">or</span><kbd>↑</kbd></span><span class="key-desc">Go to the previous question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>H</kbd></span><span class="key-desc">Turn the highlighter on or off</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>Esc</kbd></span><span class="key-desc">Close this guide, menus, and pop-ups</span></div>
+            </div>
+            <div class="help-section">
+                <h3>Highlighter</h3>
+                <p class="help-tip">Turn the highlighter on with the <b>marker button</b> in the header (or press <kbd>H</kbd>). While it's on, <b>select any text</b> in a question stem to highlight it.</p>
+                <p class="help-tip"><b>Click a highlight</b> to remove it. Your highlights are saved on this device, so they'll still be there next time.</p>
+            </div>
+            <div class="help-section">
+                <h3>Strike through / eliminate answers</h3>
+                <p class="help-tip"><b>Right-click</b> an answer choice (on a computer) or <b>press and hold</b> it (on a touch screen) to cross it out as eliminated. Repeat to bring it back.</p>
+            </div>
+            <div class="help-section">
+                <h3>Modes &amp; tools</h3>
+                <p class="help-tip"><b>Tutor</b> grades each question the moment you submit it and shows the explanation. <b>Exam</b> hides feedback until you press <b>Submit &amp; grade quiz</b> at the end.</p>
+                <p class="help-tip">Turn on <b>Grade</b> (Tutor only) for a live running score, use <b>LOs</b> to reveal learning objectives, and open the <b>sidebar navigator</b> (☰) to jump to any question, see your progress, or reset the quiz.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -1725,6 +1825,18 @@ function jumpToTracker() {
     else window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+/* ============================================================
+   CONTROLS / KEYBOARD GUIDE MODAL
+============================================================ */
+function openHelp() {
+    document.getElementById('help-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';   // freeze background scroll while open
+}
+function closeHelp() {
+    document.getElementById('help-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
 
 /* ============================================================
    THEME SYSTEM  (reads/writes the SHARED bb_ keys so the theme
@@ -1882,6 +1994,13 @@ document.addEventListener('keydown', e => {
     // ignore when typing in inputs/selects or with modifier keys
     const tag = (e.target.tagName || '').toLowerCase();
     if (tag === 'input' || tag === 'select' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+
+    // when the controls guide is open, only Esc (to close it) is active
+    const helpOverlay = document.getElementById('help-overlay');
+    if (helpOverlay && helpOverlay.classList.contains('open')) {
+        if (e.key === 'Escape') { closeHelp(); e.preventDefault(); }
+        return;
+    }
 
     const key = e.key.toLowerCase();
     const vis = visibleQuestions();
